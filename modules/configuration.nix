@@ -14,6 +14,7 @@
 
   # NETWORKING
   # Wireless is toggled in the "laptop.nix" module.
+  networking.hostName = "nixos";
   networking.networkmanager.enable = true;
 
   time.timeZone = "Europe/Stockholm";
