@@ -2,22 +2,14 @@
 {
   imports = [ ./hardware-configuration.nix ];
 
-  # =============================================================
-  # ===  BOOT  === Default nix bootloader configuration =========
-  # === LOADER === Kernel modules are added in /hosts modules ===
-  # =============================================================
-  # === https://nixos.wiki/wiki/Bootloader ======================
-  # =============================================================
+  # Very default bootloader config
+  # Kernel modules are added for each host
+  # https://nixos.wiki/wiki/Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # ============================================================================
-  # ===      USER      === "wheel" group allows sudo ===========================
-  # ===   MANAGEMENT   === "video" group allows xbacklight =====================
-  # ====================== "networkmanager" group allows nmcli =================
-  # ============================================================================
-  # === https://nixos.org/manual/nixos/stable/index.html#sec-user-management ===
-  # ============================================================================
+  # "video" group allows xbacklight
+  # https://nixos.org/manual/nixos/stable/index.html#sec-user-management
   users.users.mdlsvensson = {
     isNormalUser = true;
     description = "Wilmer Lindau";
@@ -37,12 +29,8 @@
   # NIX-STORE OPTIMIZATION ---> https://nixos.wiki/wiki/Storage_optimization
   nix.settings.auto-optimise-store = true;
 
-  # ===============================================================================
-  # ================ Common for both server and desktop/laptop ====================
-  # ===  SYSTEM  === allowUnfree means software that has a restricitve lisence ====
-  # === PACKAGES === it's not necessarily software that costs money ===============
-  # ================ vscode is considered "unfree", vscodium is not ===============
-  # ===============================================================================
+  # Common packages for server-desktop-laptop
+  # unfree packages = restrictively lisenced
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     wget
@@ -60,15 +48,12 @@
     git
   ];
 
-  # PASSWORD FEEDBACK 
   sudo.extraConfig = "Defaults env_reset,pwfeedback"; # Shows passwords characters as asterisks
 
-  # NETWORK MANAGER
-  networking.networkmanager.enable = true;
+  networking.networkmanager.enable = true; # Enable network manager for all hosts
 
-  # TIMEZONE/LOCALE
-  time.timeZone = "Europe/Stockholm";
-  i18n.defaultLocale = "en_US.UTF-8";
+  time.timeZone = ;
+  i18n.defaultLocale = ;
 
   system.stateVersion = "23.05"; # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
 }
