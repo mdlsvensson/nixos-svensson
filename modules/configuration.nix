@@ -31,6 +31,24 @@
     ];
   };
 
+  nix = {
+    # NIX SETTINGS FROM https://github.com/Misterio77/nix-starter-configs
+    # This will add each flake input as a registry
+    # To make nix3 commands consistent with your flake
+    registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
+
+    # This will additionally add your inputs to the system's legacy channels
+    # Making legacy nix commands consistent as well, awesome!
+    nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
+
+    settings = {
+      # ENABLE FLAKES
+      experimental-features = "nix-command flakes";
+      # NIX-STORE OPTIMIZATION https://nixos.wiki/wiki/Storage_optimization
+      auto-optimise-store = true;
+    };
+  };
+
   # ===============================================================================
   # ================ Common for both server and desktop/laptop ====================
   # ===  SYSTEM  === allowUnfree means software that has a restricitve lisence. ===
