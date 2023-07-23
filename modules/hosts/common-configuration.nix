@@ -1,10 +1,7 @@
 {
-  # ========================================================================================================
-  # === DISPLAY === I stay primarily on X as I, like many, have had bad wayland experiences in the past  ===
-  # === SERVER  === But as wayland improves the plan is to add a sway config to this flake eventually    ===
-  # ========================================================================================================
-  # === https://nixos.wiki/wiki/Xorg === https://nixos.wiki/wiki/XMonad === https://nixos.wiki/wiki/Xfce ===
-  # ========================================================================================================
+  # I stay primarily on X as I, like many, have had bad wayland experiences in the past
+  # But as wayland improves the plan is to add a sway config to this flake eventually
+  # https://nixos.wiki/wiki/Xorg, https://nixos.wiki/wiki/XMonad
   services.xserver.enable = true;
   services.xserver.layout = "us";                          # Keyboard layout.
   services.xserver.libinput.mouse.accelProfile = "flat";   # Disable mouse acceleration.
@@ -24,34 +21,25 @@
     Option "OffTime" "0"
   '';                                                      # Disable all "monitor turn off", "screen-savery"-type behavior.
 
-  # =========================================================================
-  # === COMPOSITOR === I use picom for the vSync, sorts my screen-tearing ===
-  # =========================================================================
-  # === https://nixos.wiki/wiki/Picom =======================================
-  # =========================================================================
+  # I use picom for the vSync, sorts my screen-tearing
+  # https://nixos.wiki/wiki/Picom
   services.picom.enable = true;
   services.picom.vSync = true;
 
-  # =============================================================================================
-  # === SOUND === This is mostly default sound config that comes with the graphical installer ===
-  # ============= With PulseAudio server emulation on you can use pavucontrol ===================
-  # ============= Experiment with the settings there if you still have no sound =================
-  # =============================================================================================
-  # === https://nixos.wiki/wiki/PipeWire ========================================================
-  # =============================================================================================
+  # This is mostly default sound config that comes with the graphical installer
+  # With PulseAudio server emulation on you can use pavucontrol
+  # Experiment with the settings there if you still have no sound
+  # https://nixos.wiki/wiki/PipeWire 
   sound.enable = true; # If you get no sound with pipewire try setting this to false and rebuilding.
   hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
+  security.rtkit.enable = true; # Pipewire needs realtimeKit enabled.
   services.pipewire.enable = true;
   services.pipewire.alsa.enable = true;
   services.pipewire.alsa.support32Bit = true; # 32bit support if you run 64bit system.
   services.pipewire.pulse.enable = true;      # Pulse server emulation. Can use pulse tools and gui.
 
-  # =================================================================================
-  # === FONTS === You can pick specific nerdfonts with this override ================
-  # =================================================================================
-  # === https://nixos.wiki/wiki/Fonts === https://github.com/ryanoasis/nerd-fonts ===
-  # =================================================================================
+  # You can pick specific nerdfonts with this override
+  # https://nixos.wiki/wiki/Fonts === https://github.com/ryanoasis/nerd-fonts
   fonts.fonts = with pkgs; [
     noto-fonts
     (nerdfonts.override { fonts = [ "Iosevka" "JetBrainsMono" ]; })
