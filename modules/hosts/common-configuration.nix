@@ -30,5 +30,5 @@
   # === https://nixos.wiki/wiki/Picom =======================================
   # =========================================================================
   services.picom.enable = true;
-  services.picaom.vSync = true;
+  services.picom.vSync = true;
 }
