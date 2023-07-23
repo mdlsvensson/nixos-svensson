@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ timeZone, locale, config, pkgs, ... }:
 {
   imports = [ ./hardware-configuration.nix ];
 
@@ -52,8 +52,8 @@
 
   networking.networkmanager.enable = true; # Enable network manager for all hosts
 
-  time.timeZone = ;
-  i18n.defaultLocale = ;
+  time.timeZone = timeZone;
+  i18n.defaultLocale = locale;
 
   system.stateVersion = "23.05"; # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
 }
