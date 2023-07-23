@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   # I stay primarily on X as I, like many, have had bad wayland experiences in the past
   # But as wayland improves the plan is to add a sway config to this flake eventually
@@ -43,5 +44,14 @@
   fonts.fonts = with pkgs; [
     noto-fonts
     (nerdfonts.override { fonts = [ "Iosevka" "JetBrainsMono" ]; })
+  ];
+
+  environment.systemPackages = with pkgs; [
+    xclip
+    alsa-utils
+    maim
+    usbutils
+    pavucontrol
+    nsxiv
   ];
 }
