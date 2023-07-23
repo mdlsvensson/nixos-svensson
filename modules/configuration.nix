@@ -5,58 +5,22 @@
       ./hosts/common-configuration.nix
     ];
 
-
-  # BOOT
-  # Default nix bootloader configuration. Kernel modules added in host modules. 
+  # ==============================================================
+  # ===  BOOT  === Default nix bootloader configuration. =========
+  # === LOADER === Kernel modules are added in /hosts modules. ===
+  # ==============================================================
+  # === https://nixos.wiki/wiki/Bootloader =======================
+  # ==============================================================
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # NETWORKING
-  # Wireless is toggled in the "laptop.nix" module.
-  networking.hostName = "nixos";
-  networking.networkmanager.enable = true;
-
-  time.timeZone = "Europe/Stockholm";
-
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the XFCE Desktop Environment.
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # ============================================================================
+  # ===      USER      === "wheel" group provides access to sudo. ==============
+  # ===   MANAGEMENT   === "video" group gives access to xbacklight. ===========
+  # ====================== "networkmanager" group gives access to nmcli.  ======
+  # ============================================================================
+  # === https://nixos.org/manual/nixos/stable/index.html#sec-user-management ===
+  # ============================================================================
   users.users.mdlsvensson = {
     isNormalUser = true;
     description = "Wilmer Lindau";
@@ -67,11 +31,13 @@
     ];
   };
 
-  # Allow unfree packages
+  # ===============================================================================
+  # ================ Common for both server and desktop/laptop ====================
+  # ===  SYSTEM  === allowUnfree means software that has a restricitve lisence. ===
+  # === PACKAGES === it's not necessarily software that costs money. ==============
+  # ================ vscode is considered "unfree", vscodium is not. ==============
+  # ===============================================================================
   nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
