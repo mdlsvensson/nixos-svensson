@@ -24,10 +24,10 @@
   users.users.mdlsvensson = {
     isNormalUser = true;
     description = "Wilmer Lindau";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-    #  thunderbird
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
     ];
   };
 
