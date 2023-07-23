@@ -1,7 +1,10 @@
 {
-  # ===================
-  # ===== XSERVER =====
-  # ===================
+  # ========================================================================================================
+  # === DISPLAY === I stay primarily on X as I, like many, have had bad wayland experiences in the past  ===
+  # === SERVER  === But as wayland improves the plan is to add a sway config to this flake eventually    ===
+  # ========================================================================================================
+  # === https://nixos.wiki/wiki/Xorg === https://nixos.wiki/wiki/XMonad === https://nixos.wiki/wiki/Xfce ===
+  # ========================================================================================================
   services.xserver.enable = true;
   services.xserver.layout = "us"; # Keyboard layout
   services.xserver.libinput.mouse.accelProfile = "flat"; # Disable mouse acceleration.
@@ -17,9 +20,11 @@
     Option "OffTime" "0"
   '';
 
-  # ======================
-  # ===== COMPOSITOR ===== # I use picom for the vSync, sorts my screen-tearing.
-  # ======================
+  # =========================================================================
+  # === COMPOSITOR === I use picom for the vSync, sorts my screen-tearing ===
+  # =========================================================================
+  # === https://nixos.wiki/wiki/Picom =======================================
+  # =========================================================================
   services.picom.enable = true;
   services.picaom.vSync = true;
 }
