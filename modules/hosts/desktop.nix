@@ -1,4 +1,6 @@
 {
+  imports = [ ./common-configuration.nix ];
+
   networking.hostName = "desktop";
 
   # KERNEL MODULES

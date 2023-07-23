@@ -1,9 +1,6 @@
 { config, pkgs, ... }:
 {
-  imports = [ 
-      ./hardware-configuration.nix
-      ./hosts/common-configuration.nix
-    ];
+  imports = [ ./hardware-configuration.nix ];
 
   # =============================================================
   # ===  BOOT  === Default nix bootloader configuration =========
