@@ -1,9 +1,8 @@
 { config, pkgs, ... }:
-
 {
-  imports =
-    [ 
+  imports = [ 
       ./hardware-configuration.nix
+      ./hosts/common-configuration.nix
     ];
 
 
