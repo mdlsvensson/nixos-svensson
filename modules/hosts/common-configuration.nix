@@ -46,6 +46,7 @@
     (nerdfonts.override { fonts = [ "Iosevka" "JetBrainsMono" ]; })
   ];
 
+  # Common packages for desktop-laptop
   environment.systemPackages = with pkgs; [
     xclip
     alsa-utils
