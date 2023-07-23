@@ -72,13 +72,8 @@
     git
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  # PASSWORD FEEDBACK 
+  sudo.extraConfig = "Defaults env_reset,pwfeedback"; # Shows typed characters of your password as asterisks
 
   # List services that you want to enable:
 
