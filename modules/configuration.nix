@@ -24,9 +24,9 @@
   # Making legacy nix commands consistent as well, awesome!
   nix.nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
-  # ENABLE FLAKES
+  # https://nixos.wiki/wiki/Flakes
   nix.settings.experimental-features = "nix-command flakes";
-  # NIX-STORE OPTIMIZATION ---> https://nixos.wiki/wiki/Storage_optimization
+  # https://nixos.wiki/wiki/Storage_optimization
   nix.settings.auto-optimise-store = true;
 
   # Common packages for server-desktop-laptop
