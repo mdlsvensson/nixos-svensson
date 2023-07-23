@@ -31,4 +31,20 @@
   # =========================================================================
   services.picom.enable = true;
   services.picom.vSync = true;
+
+  # =============================================================================================
+  # === SOUND === This is mostly default sound config that comes with the graphical installer ===
+  # ============= With PulseAudio server emulation on you can use pavucontrol ===================
+  # ============= Experiment with the settings there if you still have no sound =================
+  # =============================================================================================
+  # === https://nixos.wiki/wiki/PipeWire ========================================================
+  # =============================================================================================
+  sound.enable = true; # If you get no sound with pipewire try setting this to false and rebuilding.
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire.enable = true;
+  services.pipewire.alsa.enable = true;
+  services.pipewire.alsa.support32Bit = true; # 32bit support if you run 64bit system.
+  services.pipewire.pulse.enable = true;      # Pulse server emulation. Can use pulse tools and gui.
+
 }
