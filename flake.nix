@@ -2,8 +2,8 @@
   description = "NixOS flake dektop/laptop/servers, beginner-friendly commenting (https://github.com/mdlsvensson)";
 
   inputs = {
-    # Stable and unstable package channels.
-    # I swap in the unstable channel for packages that need it: https://channels.nixos.org/
+    # Unstable channel for packages that need it.
+    # https://channels.nixos.org/
     nixpkgs.url = "github:NixOS/nixpkgs/23.05";
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
@@ -22,36 +22,28 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, unstable, setup-config, nixvim, nix-colors, home-manager, ... } @ inputs: {
-    nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit timeZone locale; };
-        modules = [
-          setup-config.nixosModules.setupConfig {
-            setupConfig.host = "laptop";
-            setupConfig.system = "x86_64-linux";
-            setupConfig.user = {
-              name = "mdlsvensson";
-              homeDirectory = /home/mdlsvensson/;
-            };
-            setupConfig.timeZone = "Europe/Stockholm";
-            setupConfig.defaultLocale = "en_US.UTF-8";
-            git = {
-              userName = "mdlsvensson";
-              userEmail = "wilmer.lindau@gmail.com";
-              initDefaultBranch = "main";
-            };
-          }
-          ./modules/configuration.nix
-          home-manager.nixosModules.home-manager {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${user} = import ./modules/home.nix;
-            home-manager.extraSpecialArgs = { inherit user homePath git nix-colors; };
-          }
-        ];
+  outputs = { nixpkgs, unstable, setup-config, nixvim, nix-colors, home-manager, ... } @ inputs:
+    let
+      system = "x86_64-linux";
+      host = "laptop";
+      user = {
+        username = "mdlsvensson";
+        homeDirectory = /home/mdlsvensson;
+      };
+      git = {
+        userName = "mdlsvensson";
+        userEmail = "wilmer.lindau@gmail.com";
+      };
+    in {
+      nixosConfigurations = {
+        nixosHost = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs; };
+          modules = [
+            setup-config.nixosModules.setupConfig { setupConfig = { inherit host user git; }; }
+            ./modules/configuration.nix
+          ];
+        };
       };
     };
-  };
 }
