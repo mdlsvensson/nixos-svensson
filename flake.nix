@@ -42,8 +42,6 @@
               userEmail = "wilmer.lindau@gmail.com";
               initDefaultBranch = "main";
             };
-            git.userName = "mdlsvensson";
-            git.userEmail = "wilmer.lindau@gmail.com";
           }
           ./modules/configuration.nix
           home-manager.nixosModules.home-manager {
