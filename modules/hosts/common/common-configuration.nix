@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
-  # I stay primarily on X as I, like many, have had bad wayland experiences in the past
-  # But as wayland improves the plan is to add a sway config to this flake eventually
+  # The plan is to add a sway config to this flake eventually
   # https://nixos.wiki/wiki/Xorg, https://nixos.wiki/wiki/XMonad
   services.xserver.enable = true;
   services.xserver.layout = "us";                          # Keyboard layout.
@@ -13,7 +12,7 @@
 
   # DISPLAY MANAGER
   services.xserver.displayManager.lightdm.enable = true;   # LightDM Display Manager (the login screen, aka "greeter").
-  services.xserver.displayManager.defaultSession = "xfce"; # Session can be set in the top-right while loggin in.
+  services.xserver.displayManager.defaultSession = "xfce"; # Session can be set in the top-right at login.
 
   services.xserver.serverFlagsSection = ''
     Option "BlankTime" "0"
@@ -22,7 +21,6 @@
     Option "OffTime" "0"
   '';                                                      # Disable all "monitor turn off", "screen-savery"-type behavior.
 
-  # I use picom for the vSync, sorts my screen-tearing
   # https://nixos.wiki/wiki/Picom
   services.picom.enable = true;
   services.picom.vSync = true;
@@ -55,4 +53,8 @@
     pavucontrol
     nsxiv
   ];
+
+  # Vulcan
+  hardware.opengl.driSupport = true;
+  hardware.opengl.driSupport32Bit = true;
 }
