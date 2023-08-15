@@ -18,13 +18,13 @@
 
   outputs = { nixpkgs, unstable, setup-config, nixvim, nix-colors, home-manager, ... } @ inputs:
     let
-      system = "x86_64-linux";
-      host = "laptop";
-      user = {
+      system = "x86_64-linux";                 # System architecture
+      host = "laptop";                         # The configuration to apply
+      user = {                                 # Main user account
         username = "mdlsvensson";
         homeDirectory = /home/mdlsvensson;
       };
-      git = {
+      git = {                                  # Git details
         userName = "mdlsvensson";
         userEmail = "wilmer.lindau@gmail.com";
       };
@@ -34,8 +34,15 @@
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            setup-config.nixosModules.setupConfig { setupConfig = { inherit host user git; }; }
-            ./modules/configuration.nix
+            setup-config.nixosModules.setupConfig { setupConfig = { inherit host user git; }; } # Passing variables to config.setupConfig
+            ./modules/hardware-configuration.nix                                                # nixos-generate-config --show-hardware-config > hardware-configuration.nix
+            ./modules/configuration.nix                                                         # Global config
+            ./modules/hosts/${host}                                                             # Host specific setup
+            home-manager.nixosModules.home-manager {                                            # https://nix-community.github.io/home-manager/index.html#sec-install-nixos-module
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${user.username} = import ./modules/home-manager/home.nix;
+            }
           ];
         };
       };
