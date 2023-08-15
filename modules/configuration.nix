@@ -1,28 +1,16 @@
-{ timeZone, locale, config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 {
-  imports = [ ./hardware-configuration.nix ];
-
-  # Very default bootloader config
-  # Kernel modules are added for each host
   # https://nixos.wiki/wiki/Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # "video" group allows xbacklight
+  # "video" group for xbacklight
   # https://nixos.org/manual/nixos/stable/index.html#sec-user-management
-  users.users.mdlsvensson = {
+  users.users.${config.setupConfig.user.username} = {
+    home = config.setupConfig.user.homeDirectory;
     isNormalUser = true;
-    description = "Wilmer Lindau";
     extraGroups = [ "networkmanager" "wheel" "video" ];
   };
-
-  # FROM https://github.com/Misterio77/nix-starter-configs (his comments)
-  # This will add each flake input as a registry
-  # To make nix3 commands consistent with your flake
-  nix.registry = lib.mapAttrs (_: value: { flake = value; }) inputs;
-  # This will additionally add your inputs to the system's legacy channels
-  # Making legacy nix commands consistent as well, awesome!
-  nix.nixPath = lib.mapAttrsToList (key: value: "${key}=${value.to.path}") config.nix.registry;
 
   # https://nixos.wiki/wiki/Flakes
   nix.settings.experimental-features = "nix-command flakes";
@@ -50,10 +38,11 @@
 
   sudo.extraConfig = "Defaults env_reset,pwfeedback"; # Shows passwords characters as asterisks
 
+  networking.hostName = config.setupConfig.host;
   networking.networkmanager.enable = true; # Enable network manager for all hosts
 
-  time.timeZone = timeZone;
-  i18n.defaultLocale = locale;
+  time.timeZone = "Europe/Stockholm";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   system.stateVersion = "23.05"; # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
 }
