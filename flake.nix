@@ -2,35 +2,29 @@
   description = "NixOS flake dektop/laptop/servers, beginner-friendly commenting (https://github.com/mdlsvensson)";
 
   inputs = {
-    # Unstable channel for packages that need it.
-    # https://channels.nixos.org/
-    nixpkgs.url = "github:NixOS/nixpkgs/23.05";
-    unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/23.05";                           # https://channels.nixos.org/
+    unstable.url = "github:NixOS/nixpkgs/nixos-unstable";                 # Unstable channel for packages that need it.
 
-    # mdlsvensson/nixos-setup-config | NixOS module for defining local configuration data: https://github.com/mdlsvensson/nixos-setup-config
-    setup-config.url = "github:mdlsvensson/nixos-setup-config";
+    setup-config.url = "github:mdlsvensson/nixos-setup-config";           # https://github.com/mdlsvensson/nixos-setup-config
     setup-config.inputs.nixpkgs.follows = "nixpkgs";
-    # nix-community/nixvim | Configure Neovim with Nix: https://github.com/nix-community/nixvim
-    nixvim.url = "github:nix-community/nixvim";
+    nixvim.url = "github:nix-community/nixvim";                           # https://github.com/nix-community/nixvim
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
-    # Misterio77/nix-colors | Modules and schemes to make theming with Nix awesome: https://github.com/Misterio77/nix-colors
-    nix-colors.url = "github:misterio77/nix-colors";
+    nix-colors.url = "github:misterio77/nix-colors";                      # https://github.com/Misterio77/nix-colors
     nix-colors.inputs.nixpkgs.follows = "nixpkgs";
 
-    # nix-community/home-manager | Manage a user environment using Nix: https://github.com/nix-community/home-manager
-    home-manager.url = "github:nix-community/home-manager/release-23.05";
+    home-manager.url = "github:nix-community/home-manager/release-23.05"; # https://github.com/nix-community/home-manager
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { nixpkgs, unstable, setup-config, nixvim, nix-colors, home-manager, ... } @ inputs:
     let
-      system = "x86_64-linux";
-      host = "laptop";
-      user = {
+      system = "x86_64-linux";                 # System architecture
+      host = "laptop";                         # The configuration to apply
+      user = {                                 # Main user account
         username = "mdlsvensson";
         homeDirectory = /home/mdlsvensson;
       };
-      git = {
+      git = {                                  # Git details
         userName = "mdlsvensson";
         userEmail = "wilmer.lindau@gmail.com";
       };
@@ -40,8 +34,15 @@
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            setup-config.nixosModules.setupConfig { setupConfig = { inherit host user git; }; }
-            ./modules/configuration.nix
+            setup-config.nixosModules.setupConfig { setupConfig = { inherit host user git; }; } # Passing variables to config.setupConfig
+            ./modules/hardware-configuration.nix                                                # nixos-generate-config --show-hardware-config > hardware-configuration.nix
+            ./modules/configuration.nix                                                         # Global config
+            ./modules/hosts/${host}                                                             # Host specific setup
+            home-manager.nixosModules.home-manager {                                            # https://nix-community.github.io/home-manager/index.html#sec-install-nixos-module
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${user.username} = import ./modules/home-manager/home.nix;
+            }
           ];
         };
       };

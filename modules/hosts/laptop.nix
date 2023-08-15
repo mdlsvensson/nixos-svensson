@@ -1,11 +1,9 @@
+{ inputs, ... }:
 {
-  imports = [ ./common-configuration.nix ];
-
-  networking.hostName = "laptop";
+  imports = [ ./common/common-configuration.nix ];
 
   # BACKLIGHT
   hardware.acpilight.enable = true;
-
   # TOUCHPAD
   services.xserver.libinput.touchpad.accelProfile = "flat";
 }
