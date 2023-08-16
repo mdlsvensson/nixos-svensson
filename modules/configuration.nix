@@ -1,4 +1,4 @@
-{ inputs, config, pkgs, ... }:
+{ config, pkgs, ... }:
 {
   # https://nixos.wiki/wiki/Bootloader
   boot.loader.systemd-boot.enable = true;
