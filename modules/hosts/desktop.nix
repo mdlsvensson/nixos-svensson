@@ -1,1 +1,1 @@
-{ inputs, ... }: { imports = [ ./common/common-configuration.nix ]; }
+{ ... }: { imports = [ ./common/common-configuration.nix ]; }
