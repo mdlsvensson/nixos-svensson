@@ -28,6 +28,8 @@
         userName = "mdlsvensson";
         userEmail = "wilmer.lindau@gmail.com";
       };
+      timeZone = "Europe/Stockholm";
+      locale = "en_US.UTF-8";
     in {
       nixosConfigurations = {
         nixosHost = nixpkgs.lib.nixosSystem {
@@ -35,7 +37,7 @@
           specialArgs = { inherit inputs; };
           modules = [
             setup-config.nixosModules.setupConfig {                                             # Passing above to config.setupConfig
-              setupConfig = { inherit host initrd xserver user git; };
+              setupConfig = { inherit host initrd xserver user git timeZone locale; };
             }
             ./modules/hardware-configuration.nix                                                # nixos-generate-config --show-hardware-config > hardware-configuration.nix
             ./modules/configuration.nix                                                         # Global config
