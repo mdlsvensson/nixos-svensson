@@ -18,6 +18,8 @@
     let
       system = "x86_64-linux";                 # System architecture
       host = "laptop";                         # The configuration to apply
+      initrd.kernelModules = [ "amdgpu" ];     # Init kernel modules
+      xserver.videoDrivers = [ "amdgpu" ];     # Graphics driver
       user = {                                 # Main user account
         username = "mdlsvensson";
         homeDirectory = /home/mdlsvensson;
@@ -32,7 +34,9 @@
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
-            setup-config.nixosModules.setupConfig { setupConfig = { inherit host user git; }; } # Passing variables to config.setupConfig
+            setup-config.nixosModules.setupConfig {                                             # Passing above to config.setupConfig
+              setupConfig = { inherit host initrd xserver user git; };
+            }
             ./modules/hardware-configuration.nix                                                # nixos-generate-config --show-hardware-config > hardware-configuration.nix
             ./modules/configuration.nix                                                         # Global config
             ./modules/hosts/${host}                                                             # Host specific setup
