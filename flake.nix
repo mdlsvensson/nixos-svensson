@@ -32,7 +32,7 @@
       locale = "en_US.UTF-8";
     in {
       nixosConfigurations = {
-        nixosHost = nixpkgs.lib.nixosSystem {
+        svensson = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs; };
           modules = [
