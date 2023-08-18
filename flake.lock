@@ -287,11 +287,11 @@
     },
     "setup-config": {
       "locked": {
-        "lastModified": 1692151439,
-        "narHash": "sha256-/NN2CfPmOXwAkXo9bkcqGi2UApkUuKkFrLy0PkcAmMo=",
+        "lastModified": 1692375831,
+        "narHash": "sha256-r/ltUPvPOTNtkTcewAd2rpqDmNsar4hnqEcAHwses+w=",
         "owner": "mdlsvensson",
         "repo": "nixos-setup-config",
-        "rev": "60ef047c2a75c62790c1976f7f29c1a68e1dace9",
+        "rev": "2c5e41ca4874c4fd91f24434339d93194e05b1ce",
         "type": "github"
       },
       "original": {
