@@ -1,4 +1,4 @@
-{ inputs, user, homePath, git, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 {
   imports = [
     inputs.nix-colors.homeManagerModule
@@ -19,12 +19,12 @@
   systemd.user.startServices = "sd-switch";
 
   programs = {
-    git.enable = true;
-    git.userName = git.user;
+    git = {
       enable = true;
-      userName  = "mdlsvensson";
-      userEmail = "wilmer.lindau@gmail.com";
+      userName  = config.setupConfig.git.userName;
+      userEmail = config.setupConfig.git.userEmail;
     };
+    vscodium.enable = true;
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
