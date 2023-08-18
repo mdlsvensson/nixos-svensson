@@ -18,7 +18,6 @@
   nixpkgs.config.allowUnfree = true;
   # Common packages for all hosts
   environment.systemPackages = with pkgs; [
-    wget
     file
     vim
     neofetch
