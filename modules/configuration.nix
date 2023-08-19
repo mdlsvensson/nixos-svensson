@@ -32,7 +32,7 @@
     git
   ];
 
-  sudo.extraConfig = "Defaults env_reset,pwfeedback"; # Shows passwords characters as asterisks
+  security.sudo.extraConfig = "Defaults env_reset,pwfeedback"; # Shows passwords characters as asterisks
 
   networking.hostName = config.setupConfig.host;
   networking.networkmanager.enable = true;
