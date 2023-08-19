@@ -31,8 +31,8 @@
   services.pipewire.alsa.support32Bit = true; # 32bit support if you run 64bit system
   services.pipewire.pulse.enable = true;      # Pulse server emulation
 
-  # You can pick specific nerdfonts with this override
   # https://nixos.wiki/wiki/Fonts | https://github.com/ryanoasis/nerd-fonts
+  # You can pick specific nerdfonts with this override
   fonts.fonts = with pkgs; [
     noto-fonts
     (nerdfonts.override { fonts = [ "Iosevka" "JetBrainsMono" ]; })
