@@ -4,13 +4,9 @@
   services.xserver.enable = true;
   services.xserver.layout = "us";                          # Keyboard layout
   services.xserver.libinput.mouse.accelProfile = "flat";   # Disable mouse acceleration
-
-  # DESKTOP MANAGER
-  services.xserver.desktopManager.xmonad.enable = true;    # Main
+  services.xserver.windowManager.xmonad.enable = true;     # Main
   services.xserver.desktopManager.xfce.enable = true;      # Fallback
-
-  # DISPLAY MANAGER
-  services.xserver.displayManager.lightdm.enable = true;   # The login screen aka "greeter"
+  services.xserver.displayManager.lightdm.enable = true;   # Login ("greeter")
   services.xserver.displayManager.defaultSession = "xfce";
 
   services.xserver.serverFlagsSection = ''
