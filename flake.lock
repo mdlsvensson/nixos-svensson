@@ -281,23 +281,7 @@
         "nix-colors": "nix-colors",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
-        "setup-config": "setup-config",
         "unstable": "unstable"
-      }
-    },
-    "setup-config": {
-      "locked": {
-        "lastModified": 1692375831,
-        "narHash": "sha256-r/ltUPvPOTNtkTcewAd2rpqDmNsar4hnqEcAHwses+w=",
-        "owner": "mdlsvensson",
-        "repo": "nixos-setup-config",
-        "rev": "2c5e41ca4874c4fd91f24434339d93194e05b1ce",
-        "type": "github"
-      },
-      "original": {
-        "owner": "mdlsvensson",
-        "repo": "nixos-setup-config",
-        "type": "github"
       }
     },
     "systems": {

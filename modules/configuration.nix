@@ -4,8 +4,13 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Set your time zone.
+  time.timeZone = "Europe/Stockholm";
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+
   # https://nixos.org/manual/nixos/stable/index.html#sec-user-management
-  users.users.${config.setupConfig.user.username} = {
+  users.users."mdlsvensson" = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" "video" ];
   };
@@ -34,7 +39,7 @@
 
   security.sudo.extraConfig = "Defaults env_reset,pwfeedback"; # Shows passwords characters as asterisks
 
-  networking.hostName = config.setupConfig.host;
+  networking.hostName = "laptop";
   networking.networkmanager.enable = true;
 
   system.stateVersion = "23.05"; # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
