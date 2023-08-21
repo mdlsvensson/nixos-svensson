@@ -37,12 +37,16 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    xclip       # Command line interface to the X11 clipboard
-    alsa-utils  # A lot of utils for alsa
-    maim        # Screenshots
-    usbutils    # USB-related utilities
-    pavucontrol # PulseAudio GUI, works with pipewire with pulse server emulation
-    nsxiv       # Simple X Image Viewer
+    xclip           # Command line interface to the X11 clipboard
+    alsa-utils      # A lot of utils for alsa
+    maim            # Screenshots
+    usbutils        # USB-related utilities
+    pavucontrol     # PulseAudio GUI, works with pipewire with pulse server emulation
+    nsxiv           # Simple X Image Viewer
+    gnumake         # make
+    dotnet-sdk_7    # .NET
+    notify-desktop  # Notifications
+    pcmanfm         # File Manager
   ];
 
   # Vulkan

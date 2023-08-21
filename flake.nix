@@ -26,6 +26,7 @@
             ./modules/configuration.nix               # Global config
             ./modules/hosts/${host}.nix               # Host specific
             home-manager.nixosModules.home-manager {  # https://nix-community.github.io/home-manager/index.html#sec-install-nixos-module
+              home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users."mdlsvensson" = import ./modules/home-manager/home.nix;
