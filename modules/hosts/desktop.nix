@@ -2,6 +2,6 @@
 {
   imports = [ ./common/common-configuration.nix ];
   
-  initrd.kernelModules = [ "amdgpu" ];
-  xserver.videoDrivers = [ "amdgpu" ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
+  services.xserver.videoDrivers = [ "amdgpu" ];
 }
