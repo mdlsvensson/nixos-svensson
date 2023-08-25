@@ -1,4 +1,4 @@
-rofi = {
+{
   enable = true;
   font = "JetBrains Mono Nerdfont 14";
   # theme = {

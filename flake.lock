@@ -205,16 +205,16 @@
         "beautysh": "beautysh",
         "flake-utils": "flake-utils",
         "nixpkgs": [
-          "nixpkgs"
+          "unstable"
         ],
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1692350035,
-        "narHash": "sha256-hcC5vVjbNYzv7hPu3e27jUvt6mBzGIdzoAt2mlZyWvE=",
+        "lastModified": 1692693089,
+        "narHash": "sha256-5Ih1ScXE55kp9GpZFRRwrHn2lqnTTUUvQqiDtIfALUQ=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "07af7710e297308a553f09f6ceeb729aa5b5a27c",
+        "rev": "ebb8e479d2d549e0a9fc9a4ded6785be063005be",
         "type": "github"
       },
       "original": {

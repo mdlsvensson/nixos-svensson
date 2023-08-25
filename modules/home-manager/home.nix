@@ -42,7 +42,45 @@
     };
   };
 
-  programs = import ./programs
+  programs = {
+    zsh = import ./programs/zsh.nix;
+    rofi = import ./programs/rofi.nix;
+    kitty = import ./programs/kitty.nix;
+    nixvim = import ./programs/nixvim.nix;
+    git = {
+      enable = true;
+      userName  = "mdlsvensson";
+      userEmail = "wilmer.lindau@gmail.com";
+    };
+    firefox = {
+      enable = true;
+      profiles."mdlsvensson".name = "mdlsvensson";
+      profiles."mdlsvensson".isDefault = true;
+    };
+    starship = {
+      enable = true;
+      settings.add_newline = true;
+    };
+    exa = {
+      enable = true;
+      icons = true;
+    };
+    fzf = {
+      enable = true;
+      defaultCommand = "fd --type f";
+    };
+    nnn = {
+      enable = true;
+      package = pkgs.nnn.override ({ withNerdIcons = true; });
+    };
+    lazygit.enable = true;
+    zoxide.enable = true;
+    nix-index.enable = true;
+    bat.enable = true;
+    mpv.enable = true;
+    # direnv.enable = true;
+    home-manager.enable = true;
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";

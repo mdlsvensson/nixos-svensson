@@ -5,7 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/23.05";                            # https://channels.nixos.org/
     unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixvim.url = "github:nix-community/nixvim";                            # https://github.com/nix-community/nixvim
-    nixvim.inputs.nixpkgs.follows = "nixpkgs";
+    nixvim.inputs.nixpkgs.follows = "unstable";
     nix-colors.url = "github:misterio77/nix-colors";                       # https://github.com/Misterio77/nix-colors
     nix-colors.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager/release-23.05";  # https://github.com/nix-community/home-manager
