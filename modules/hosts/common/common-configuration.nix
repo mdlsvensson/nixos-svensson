@@ -5,7 +5,6 @@
   services.xserver.layout = "us";
   services.xserver.libinput.mouse.accelProfile = "flat";
   services.xserver.windowManager.i3.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.displayManager.defaultSession = "none+i3";
 
