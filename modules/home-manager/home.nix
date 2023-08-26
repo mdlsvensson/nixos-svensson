@@ -2,7 +2,7 @@
 {
   imports = [
     inputs.nix-colors.homeManagerModule
-    inputs.nixvim.homeManagerModules.nixvim
+    #inputs.nixvim.homeManagerModules.nixvim
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
@@ -42,11 +42,18 @@
     };
   };
 
+  file = {
+    "i3" = {
+      source = ../../dots/i3;
+      target = ".config/i3";
+    };
+  };
+
   programs = {
     zsh = import ./programs/zsh.nix;
     rofi = import ./programs/rofi.nix;
     kitty = import ./programs/kitty.nix;
-    nixvim = import ./programs/nixvim.nix;
+    #nixvim = import ./programs/nixvim.nix;
     git = {
       enable = true;
       userName  = "mdlsvensson";
