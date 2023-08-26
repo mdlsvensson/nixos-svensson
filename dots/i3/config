@@ -1,6 +1,6 @@
+# BINDS
 # modkey
 set $mod Mod4
-# BINDS
 # terminal
 bindsym $mod+Return exec kitty
 # pcmanfm
