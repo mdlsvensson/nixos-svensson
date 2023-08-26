@@ -18,7 +18,7 @@
       };
       "screenlayout" = {
         source = ../../dots/.screenlayout;
-        target = ".config/.screenlayout";
+        target = ".screenlayout";
       };
     };
   };
