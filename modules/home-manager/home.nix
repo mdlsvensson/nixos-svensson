@@ -56,7 +56,6 @@
 
   programs = {
     zsh = import ./programs/zsh.nix;
-    rofi = import ./programs/rofi.nix;
     kitty = import ./programs/kitty.nix;
     #nixvim = import ./programs/nixvim.nix;
     git = {
