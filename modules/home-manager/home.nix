@@ -7,9 +7,17 @@
 
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
-  home.username = "mdlsvensson";
-  home.homeDirectory = "/home/mdlsvensson";
-  home.packages = with pkgs; [ vscodium-fhs ];
+  home = {
+    username = "mdlsvensson";
+    homeDirectory = "/home/mdlsvensson";
+    packages = with pkgs; [ vscodium-fhs ];
+    file = {
+      "i3" = {
+        source = ../../dots/i3;
+        target = ".config/i3";
+      };
+    };
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
@@ -39,13 +47,6 @@
     videos = null;
     extraConfig = {
       XDG_WORKSPACES_PATH = "${config.home.homeDirectory}/Workspaces";
-    };
-  };
-
-  file = {
-    "i3" = {
-      source = ../../dots/i3;
-      target = ".config/i3";
     };
   };
 
