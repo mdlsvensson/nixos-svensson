@@ -16,6 +16,10 @@
         source = ../../dots/i3;
         target = ".config/i3";
       };
+      "screenlayout" = {
+        source = ../../dots/.screenlayout;
+        target = ".config/.screenlayout";
+      };
     };
   };
 
