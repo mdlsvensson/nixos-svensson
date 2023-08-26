@@ -9,12 +9,10 @@
     vi = "nvim";
     ls = "exa -a";
     # NixOS
-    redesk = "sudo nixos-rebuild switch --flake ~/nixos-config/#desktop";
-    relap = "sudo nixos-rebuild switch --flake ~/nixos-config/#laptop";
-    rehome = "home-manager switch --flake ~/nixos-config/#mdlsvensson";
+    rebuild = "sudo nixos-rebuild switch --flake ~/nixos-svensson/#svensson";
     # Lazygit
     lg = "lazygit";
-    lgnix = "lazygit -p ~/nixos-config";
+    lgnix = "lazygit -p ~/nixos-svensson";
     # SSH
     ghkey = "ssh-keygen -t ed25519 -C wilmer.lindau@gmail.com";
     ssha = ''eval "$(ssh-agent -s)"'';
