@@ -3,6 +3,8 @@ set $mod Mod4
 # BINDS
 # terminal
 bindsym $mod+Return exec kitty
+# pcmanfm
+bindsym $mod+f exec pcmanfm
 # firefox
 bindsym $mod+w exec firefox
 # kill
