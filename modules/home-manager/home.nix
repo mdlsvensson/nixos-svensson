@@ -1,4 +1,13 @@
 { inputs, config, pkgs, ... }:
+let
+  catppuccin_name = "Catppuccin-Macchiato-Standard-Green-Dark";
+  catppuccin = pkgs.catppuccin-gtk.override {
+    accents = [ "green" ];
+    size = "standard";
+    tweaks = [ "normal" ];
+    variant = "macchiato";
+  };
+in
 {
   imports = [
     inputs.nix-colors.homeManagerModule
@@ -12,16 +21,21 @@
     homeDirectory = "/home/mdlsvensson";
     packages = with pkgs; [ vscodium-fhs ];
     file = {
-      "i3" = {
-        source = ../../dots/i3;
-        target = ".config/i3";
-      };
-      "screenlayout" = {
-        source = ../../dots/.screenlayout;
-        target = ".screenlayout";
+      # i3wm
+      ".config/i3".source = ../../dots/i3;
+      # xrandr
+      "screenlayout".source = ../../dots/.screenlayout;
+      # gtk
+      ".config/gtk-4.0/gtk.css".source = "${catppuccin}/share/themes/${catppuccin_name}/gtk-4.0/gtk.css";
+      ".config/gtk-4.0/gtk-dark.css".source = "${catppuccin}/share/themes/${catppuccin_name}/gtk-4.0/gtk-dark.css";
+      ".config/gtk-4.0/assets" = {
+        recursive = true;
+        source = "${catppuccin}/share/themes/${catppuccin_name}/gtk-4.0/assets";
       };
     };
   };
+
+  
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
@@ -51,6 +65,18 @@
     videos = null;
     extraConfig = {
       XDG_WORKSPACES_PATH = "${config.home.homeDirectory}/Workspaces";
+    };
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = catppuccin_name;
+      package = catppuccin;
+    };
+    cursorTheme = {
+      name = "Catppuccin-Macchiato-Dark-Cursors";
+      package = pkgs.catppuccin-cursors.macchiatoDark;
     };
   };
 
