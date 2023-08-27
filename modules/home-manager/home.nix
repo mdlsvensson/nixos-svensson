@@ -11,7 +11,7 @@ in
 {
   imports = [
     inputs.nix-colors.homeManagerModule
-    #inputs.nixvim.homeManagerModules.nixvim
+    inputs.nixvim.homeManagerModules.nixvim
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
@@ -77,7 +77,7 @@ in
   programs = {
     zsh = import ./programs/zsh.nix;
     kitty = import ./programs/kitty.nix { inherit (config.colorScheme) colors; };
-    #nixvim = import ./programs/nixvim.nix;
+    nixvim = import ./programs/nixvim.nix;
     git = {
       enable = true;
       userName  = "mdlsvensson";
