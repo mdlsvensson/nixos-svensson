@@ -23,6 +23,7 @@
   services.picom = {
     enable = true;
     vSync = true;
+    shadow = false;
   };
 
   # https://nixos.wiki/wiki/PipeWire 
