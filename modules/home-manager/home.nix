@@ -80,7 +80,7 @@ in
 
   programs = {
     zsh = import ./programs/zsh.nix;
-    kitty = import ./programs/kitty.nix;
+    kitty = import ./programs/kitty.nix { inherit (config.colorScheme) colors; };
     #nixvim = import ./programs/nixvim.nix;
     git = {
       enable = true;

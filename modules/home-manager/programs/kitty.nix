@@ -1,5 +1,4 @@
-{ config, ... }:
-let inherit (config.colorScheme) colors; in
+{ colors, ... }:
 {
   enable = true;
   font.name = "JetBrains Mono Nerd Font";
