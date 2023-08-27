@@ -24,7 +24,7 @@ in
       # i3wm
       ".config/i3".source = ../../dots/i3;
       # xrandr
-      "screenlayout".source = ../../dots/.screenlayout;
+      ".screenlayout".source = ../../dots/.screenlayout;
       # gtk
       ".config/gtk-4.0/gtk.css".source = "${catppuccin}/share/themes/${catppuccin_name}/gtk-4.0/gtk.css";
       ".config/gtk-4.0/gtk-dark.css".source = "${catppuccin}/share/themes/${catppuccin_name}/gtk-4.0/gtk-dark.css";
