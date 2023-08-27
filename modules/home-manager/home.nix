@@ -1,6 +1,6 @@
 { inputs, config, pkgs, ... }:
 let
-  catppuccin_name = "Catppuccin-Macchiato-Standard-Green-Dark";
+  catppuccin_name = "Catppuccin-Macchiato-Standard-Green-dark";
   catppuccin = pkgs.catppuccin-gtk.override {
     accents = [ "green" ];
     size = "standard";
@@ -14,7 +14,7 @@ in
     #inputs.nixvim.homeManagerModules.nixvim
   ];
 
-  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
 
   home = {
     username = "mdlsvensson";
