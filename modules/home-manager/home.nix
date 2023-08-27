@@ -115,6 +115,7 @@ in
     nix-index.enable = true;
     bat.enable = true;
     mpv.enable = true;
+    gh.enable = true;
     # direnv.enable = true;
     home-manager.enable = true;
   };
