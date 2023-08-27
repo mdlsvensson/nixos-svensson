@@ -23,6 +23,7 @@ in
     file = {
       # i3wm
       ".config/i3".source = ../../dots/i3;
+      ".background-image".source = ../../dots/.background-image;
       # xrandr
       ".screenlayout".source = ../../dots/.screenlayout;
       # gtk
