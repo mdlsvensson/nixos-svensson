@@ -1,12 +1,16 @@
 { pkgs, ... }:
 {
   # https://nixos.wiki/wiki/Xorg | https://nixos.wiki/wiki/XMonad
-  services.xserver.enable = true;
-  services.xserver.layout = "us";
-  services.xserver.libinput.mouse.accelProfile = "flat";
-  services.xserver.windowManager.i3.enable = true;
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.displayManager.defaultSession = "none+i3";
+  services.xserver = {
+    enable = true;
+    layout = "us";
+    libinput.mouse.accelProfile = "flat";
+    windowManager.i3.enable = true;
+    displayManager = {
+      lightdm.enable = true;
+      defaultSession = "none+i3";
+    };
+  };
 
   services.xserver.serverFlagsSection = ''
     Option "BlankTime" "0"
@@ -16,20 +20,26 @@
   '';
 
   # https://nixos.wiki/wiki/Picom
-  services.picom.enable = true;
-  services.picom.vSync = true;
+  services.picom = {
+    enable = true;
+    vSync = true;
+  };
 
   # https://nixos.wiki/wiki/PipeWire 
-  sound.enable = true;                        # Setting to false may fix pipewire if no sound
+  sound.enable = true;  # Setting to false may fix pipewire if no sound
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
-  services.pipewire.enable = true;
-  services.pipewire.alsa.enable = true;
-  services.pipewire.alsa.support32Bit = true;
-  services.pipewire.pulse.enable = true;      # Pulse server emulation
+  services.pipewire = {
+    enable = true;
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
+    pulse.enable = true;  # Pulse server emulation
+  };
 
   # https://nixos.wiki/wiki/Fonts | https://github.com/ryanoasis/nerd-fonts
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     noto-fonts
     # You can pick specific nerdfonts with this override
     (nerdfonts.override { fonts = [ "Iosevka" "JetBrainsMono" ]; })
@@ -50,8 +60,11 @@
   ];
 
   programs.dconf.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   # Vulkan
-  hardware.opengl.driSupport = true;
-  hardware.opengl.driSupport32Bit = true;
+  hardware.opengl = {
+    driSupport = true;
+    driSupport32Bit = true;
+  };
 }
