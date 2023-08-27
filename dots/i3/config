@@ -1,3 +1,5 @@
+include ~/.config/i3/catppuccin-macchiato
+
 # ----------------- WORKSPACES -----------------
 set $ws1 "1"
 set $ws2 "2"
@@ -120,5 +122,3 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bar {
         status_command i3status
 }
-
-include ~/.config/i3/catppuccin-macchiato
