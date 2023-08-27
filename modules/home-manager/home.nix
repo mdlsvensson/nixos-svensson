@@ -58,6 +58,7 @@ in
     extraConfig = {
       XDG_WORKSPACES_PATH = "${config.home.homeDirectory}/Workspaces";
       XDG_REPO_PATH = "${config.home.homeDirectory}/Repo";
+      XDG_GAMES_PATH = "${config.home.homeDirectory}/Games";
     };
   };
 
