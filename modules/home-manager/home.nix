@@ -19,7 +19,7 @@ in
   home = {
     username = "mdlsvensson";
     homeDirectory = "/home/mdlsvensson";
-    packages = with pkgs; [ vscodium-fhs ];
+    # packages = with pkgs; [  ];
     file = {
       # i3wm
       ".config/i3".source = ../../dots/i3;
@@ -107,6 +107,12 @@ in
     nnn = {
       enable = true;
       package = pkgs.nnn.override ({ withNerdIcons = true; });
+    };
+    vscode = {
+      enable = true;
+      package = pkgs.vscode.fhsWithPackages (ps: with ps; [
+        nil
+      ]);
     };
     lazygit.enable = true;
     zoxide.enable = true;
