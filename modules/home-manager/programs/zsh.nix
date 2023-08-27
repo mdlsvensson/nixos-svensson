@@ -1,7 +1,7 @@
 {
   enable = true;
   history.size = 10000;
-  history.path = "/home/mdlsvensson/zsh/history";
+  history.path = "/home/mdlsvensson/.config/zsh/history";
   shellAliases = {
     # General
     fz = "fzf";
