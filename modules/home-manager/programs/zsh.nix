@@ -9,7 +9,9 @@
     vi = "nvim";
     ls = "exa -a";
     # NixOS
-    rebuild = "sudo nixos-rebuild switch --flake ~/nixos-svensson/#svensson";
+    rebuild = "sudo nixos-rebuild build --flake ~/nixos-svensson/#svensson";
+    reswitch = "sudo nixos-rebuild switch --flake ~/nixos-svensson/#svensson";
+    nixgen = "nix-env --list-generations";
     # Lazygit
     lg = "lazygit";
     lgnix = "lazygit -p ~/nixos-svensson";
@@ -22,6 +24,21 @@
     plugins = [
       { name = "nvbn/thefuck"; }
       { name = "zsh-users/zsh-autosuggestions"; }
+      { name = "zsh-users/zsh-syntax-highlighting"; }
     ];
   };
+  initExtra = ''
+    bindkey '^I' autosuggest-accept
+  '';
+  envExtra = ''
+  function nixgc() {
+    if [ $# -eq 0 ]; then
+      >&2 echo "No arguments provided"
+      return 1
+    fi
+    nix-env --delete-generations $1
+    nix-store --gc
+  }
+  '';
+  dotDir = ".config/zsh";
 }
