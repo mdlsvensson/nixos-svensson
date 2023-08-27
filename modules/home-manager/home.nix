@@ -25,7 +25,7 @@ in
       ".config/i3".source = ../../dots/i3;
       ".background-image".source = ../../dots/.background-image;
       # xrandr
-      ".screenlayout".source = ../../dots/.screenlayout;
+      ".config/.screenlayout".source = ../../dots/.screenlayout;
     };
   };
 
