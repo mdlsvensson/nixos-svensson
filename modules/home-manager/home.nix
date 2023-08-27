@@ -57,6 +57,7 @@ in
     videos = null;
     extraConfig = {
       XDG_WORKSPACES_PATH = "${config.home.homeDirectory}/Workspaces";
+      XDG_REPO_PATH = "${config.home.homeDirectory}/Repo";
     };
   };
 
