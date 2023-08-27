@@ -1,9 +1,9 @@
 { inputs, config, pkgs, ... }:
 let
-  catppuccin_name = "Catppuccin-Macchiato-Standard-Green-dark";
+  catppuccin_name = "Catppuccin-Macchiato-Compact-Pink-dark";
   catppuccin = pkgs.catppuccin-gtk.override {
-    accents = [ "green" ];
-    size = "standard";
+    accents = [ "pink" ];
+    size = "compact";
     tweaks = [ "normal" ];
     variant = "macchiato";
   };
@@ -19,20 +19,13 @@ in
   home = {
     username = "mdlsvensson";
     homeDirectory = "/home/mdlsvensson";
-    # packages = with pkgs; [  ];
+    packages = with pkgs; [ godot_4 ];
     file = {
       # i3wm
       ".config/i3".source = ../../dots/i3;
       ".background-image".source = ../../dots/.background-image;
       # xrandr
       ".screenlayout".source = ../../dots/.screenlayout;
-      # gtk
-      ".config/gtk-4.0/gtk.css".source = "${catppuccin}/share/themes/${catppuccin_name}/gtk-4.0/gtk.css";
-      ".config/gtk-4.0/gtk-dark.css".source = "${catppuccin}/share/themes/${catppuccin_name}/gtk-4.0/gtk-dark.css";
-      ".config/gtk-4.0/assets" = {
-        recursive = true;
-        source = "${catppuccin}/share/themes/${catppuccin_name}/gtk-4.0/assets";
-      };
     };
   };
 
