@@ -58,6 +58,8 @@
     notify-desktop        # Notifications
     pcmanfm               # File Manager
     networkmanager_dmenu  # NM for dmenu
+    rustc                 # Rust
+    cargo                 # Rust
   ];
 
   programs.dconf.enable = true;
