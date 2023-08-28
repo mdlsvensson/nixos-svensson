@@ -60,6 +60,7 @@
     networkmanager_dmenu  # NM for dmenu
     rustc                 # Rust
     cargo                 # Rust
+    blender-hip           # Blender amd
   ];
 
   programs.dconf.enable = true;
