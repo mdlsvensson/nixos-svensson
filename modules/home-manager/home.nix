@@ -26,6 +26,8 @@ in
       ".background-image".source = ../../dots/.background-image;
       # xrandr
       ".config/.screenlayout".source = ../../dots/.screenlayout;
+      # vscode
+      ".config/Code/User/profiles".source = ../../dots/Code/User/profiles;
     };
   };
 
