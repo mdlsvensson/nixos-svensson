@@ -25,6 +25,7 @@ in
       wings               # Wings3D
       qbittorrent         # Torrent client
       gimp                # Image editor
+      steam               # Steam
     ];
     file = {
       # i3wm
