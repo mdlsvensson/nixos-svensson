@@ -22,7 +22,8 @@ in
     packages = with pkgs; [
       godot_4             # Godot Engine
       blender-hip         # Blender
-      wings             # Wings3D
+      wings               # Wings3D
+      qbittorrent         # Torrent client
     ];
     file = {
       # i3wm
