@@ -57,6 +57,7 @@
     dotnet-sdk_7          # .NET
     notify-desktop        # Notifications
     pcmanfm               # File Manager
+    libsForQt5.ark        # Archive Manager
     networkmanager_dmenu  # NM for dmenu
     rustc                 # Rust
     cargo                 # Rust
