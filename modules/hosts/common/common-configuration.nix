@@ -61,6 +61,7 @@
     rustc                 # Rust
     cargo                 # Rust
     blender-hip           # Blender amd
+    wings3d               # Wings3D
   ];
 
   programs.dconf.enable = true;
