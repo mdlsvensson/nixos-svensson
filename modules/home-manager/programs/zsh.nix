@@ -11,7 +11,7 @@
     # NixOS
     rebuild = "sudo nixos-rebuild build --flake ~/nixos-svensson/#svensson";
     reswitch = "sudo nixos-rebuild switch --flake ~/nixos-svensson/#svensson";
-    nixup = "nix flake update";
+    nixup = "nix flake update /home/mdlsvensson/nixos-svensson";
     nixgen = "nix-env --list-generations";
     # Lazygit
     lg = "lazygit";
