@@ -24,6 +24,7 @@ in
       blender-hip         # Blender
       wings               # Wings3D
       qbittorrent         # Torrent client
+      gimp                # Image editor
     ];
     file = {
       # i3wm
