@@ -19,7 +19,11 @@ in
   home = {
     username = "mdlsvensson";
     homeDirectory = "/home/mdlsvensson";
-    packages = with pkgs; [ godot_4 ];
+    packages = with pkgs; [
+      godot_4             # Godot Engine
+      blender-hip         # Blender
+      wings3d             # Wings3D
+    ];
     file = {
       # i3wm
       ".config/i3".source = ../../dots/i3;
