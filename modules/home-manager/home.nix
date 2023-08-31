@@ -22,7 +22,7 @@ in
     packages = with pkgs; [
       godot_4             # Godot Engine
       blender-hip         # Blender
-      wings3d             # Wings3D
+      wings             # Wings3D
     ];
     file = {
       # i3wm
