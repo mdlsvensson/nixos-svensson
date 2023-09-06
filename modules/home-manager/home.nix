@@ -20,12 +20,14 @@ in
     username = "mdlsvensson";
     homeDirectory = "/home/mdlsvensson";
     packages = with pkgs; [
-      godot_4             # Godot Engine
-      blender-hip         # Blender
-      wings               # Wings3D
-      qbittorrent         # Torrent client
-      gimp                # Image editor
-      steam               # Steam
+      godot_4                 # Godot Engine
+      blender-hip             # Blender
+      wings                   # Wings3D
+      qbittorrent             # Torrent client
+      gimp                    # Image editor
+      steam                   # Steam
+      jetbrains-toolbox       # Jetbrains Toolbox
+      tor-browser-bundle-bin  # Tor Browser
     ];
     file = {
       # i3wm
