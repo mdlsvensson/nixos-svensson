@@ -37,7 +37,8 @@ in
       ".config/.screenlayout".source = ../../dots/.screenlayout;
       # vscode
       ".config/Code/User/profiles".source = ../../dots/Code/User/profiles;
-      ".config/zsh".source = ../../dots/zsh;
+      # zsh history
+      ".config/zsh/history".source = ../../dots/zsh/history;
     };
   };
 
