@@ -9,16 +9,15 @@
     vi = "nvim";
     ls = "exa -a";
     # NixOS
-    rebuild = "sudo nixos-rebuild build --flake ~/nixos-svensson/#svensson";
-    reswitch = "sudo nixos-rebuild switch --flake ~/nixos-svensson/#svensson";
-    nixup = "nix flake update /home/mdlsvensson/nixos-svensson";
-    nixgen = "nix-env --list-generations";
+    flake-build = "sudo nixos-rebuild build --flake ~/Repo/nixos-svensson/#svensson";
+    flake-switch = "sudo nixos-rebuild switch --flake ~/Repo/nixos-svensson/#svensson";
+    flake-update = "nix flake update /home/mdlsvensson/Repo/nixos-svensson";
+    env-gen = "nix-env --list-generations";
     # Lazygit
     lg = "lazygit";
-    lgnix = "lazygit -p ~/nixos-svensson";
+    lgnix = "lazygit -p ~/Repo/nixos-svensson";
     # SSH
-    ghkey = "ssh-keygen -t ed25519 -C wilmer.lindau@gmail.com";
-    ssha = ''eval "$(ssh-agent -s)"'';
+    ssh-eval = ''eval "$(ssh-agent -s)"'';
   };
   zplug = {
     enable = true;
@@ -32,13 +31,21 @@
     bindkey '^I' autosuggest-accept
   '';
   envExtra = ''
-  function nixgc() {
+  function garbage() {
     if [ $# -eq 0 ]; then
       >&2 echo "No arguments provided"
       return 1
     fi
     nix-env --delete-generations $1
     nix-store --gc
+  }
+
+  function clone() {
+    if [ $# -eq 0 ]; then
+      >&2 echo "No arguments provided"
+      return 1
+    fi
+    gh repo clone $1
   }
   '';
   dotDir = ".config/zsh";
