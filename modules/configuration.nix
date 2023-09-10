@@ -1,5 +1,8 @@
 { config, pkgs, ... }:
 {
+  # Disable systemd emergency shell
+  systemd.enableEmergencyMode = false;
+
   # https://nixos.wiki/wiki/Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

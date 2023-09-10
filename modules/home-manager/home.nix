@@ -26,8 +26,9 @@ in
       qbittorrent             # Torrent client
       gimp                    # Image editor
       steam                   # Steam
-      jetbrains-toolbox       # Jetbrains Toolbox
       tor-browser-bundle-bin  # Tor Browser
+      chessx                  # Chess tool
+      stockfish               # Chess engine
     ];
     file = {
       # i3wm

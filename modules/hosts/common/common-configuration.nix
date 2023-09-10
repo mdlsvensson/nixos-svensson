@@ -5,7 +5,12 @@
     enable = true;
     layout = "us";
     libinput.mouse.accelProfile = "flat";
-    windowManager.i3.enable = true;
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+
+      ];
+    };
     displayManager = {
       lightdm.enable = true;
       defaultSession = "none+i3";
@@ -26,7 +31,7 @@
     shadow = false;
   };
 
-  # https://nixos.wiki/wiki/PipeWire 
+  # https://nixos.wiki/wiki/PipeWire
   sound.enable = true;  # Setting to false may fix pipewire if no sound
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
