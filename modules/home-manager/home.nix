@@ -124,7 +124,7 @@ in
     };
     gh = {
       enable = true;
-      editor = "nvim"
+      editor = "nvim";
     };
     gh-dash.enable = true;
     lazygit.enable = true;
