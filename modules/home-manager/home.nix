@@ -122,12 +122,16 @@ in
         nil
       ]);
     };
+    gh = {
+      enable = true;
+      editor = "nvim"
+    }
+    gh-dash.enable = true;
     lazygit.enable = true;
     zoxide.enable = true;
     nix-index.enable = true;
     bat.enable = true;
     mpv.enable = true;
-    gh.enable = true;
     # direnv.enable = true;
     home-manager.enable = true;
   };
