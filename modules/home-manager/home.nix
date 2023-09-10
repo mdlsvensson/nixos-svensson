@@ -33,11 +33,11 @@ in
     file = {
       # i3wm
       ".config/i3".source = ../../dots/i3;
-      ".background-image".source = ../../dots/.background-image;
       # xrandr
       ".config/.screenlayout".source = ../../dots/.screenlayout;
       # vscode
       ".config/Code/User/profiles".source = ../../dots/Code/User/profiles;
+      ".config/zsh".source = ../../dots/zsh;
     };
   };
 
