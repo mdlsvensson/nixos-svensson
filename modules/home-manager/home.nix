@@ -124,7 +124,7 @@ in
     };
     gh = {
       enable = true;
-      editor = "nvim";
+      settings.editor = "nvim";
     };
     lazygit.enable = true;
     zoxide.enable = true;
