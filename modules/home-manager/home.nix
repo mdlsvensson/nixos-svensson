@@ -125,7 +125,7 @@ in
     gh = {
       enable = true;
       editor = "nvim"
-    }
+    };
     gh-dash.enable = true;
     lazygit.enable = true;
     zoxide.enable = true;
