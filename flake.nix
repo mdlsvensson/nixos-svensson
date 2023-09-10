@@ -14,14 +14,15 @@
   outputs = { nixpkgs, nixvim, nix-colors, home-manager, ... } @ inputs:
     let
       system = "x86_64-linux";  # System architecture
-      host = "desktop";          # The configuration to apply
+      host = "desktop";         # The configuration to apply
     in {
       nixosConfigurations = {
         svensson = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs host; };
           modules = [
             ./modules/configuration.nix               # Global config
+            ./modules/hardware-configuration.nix      # nixos-generate-config --show-hardware-config > hw-desktop.nix
             ./modules/hosts/${host}.nix               # Host specific
             home-manager.nixosModules.home-manager {  # https://nix-community.github.io/home-manager/index.html#sec-install-nixos-module
               home-manager.extraSpecialArgs = { inherit inputs; };
