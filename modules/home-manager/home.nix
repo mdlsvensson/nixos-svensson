@@ -52,7 +52,7 @@ in
       latitude = "59.32";
       longitude = "18.06";
     };
-    unclutter.enable = true;
+    unclutter.enable = true; # Hides cursor
     # lorri.enable = true;
   };
 
