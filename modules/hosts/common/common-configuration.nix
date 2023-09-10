@@ -32,7 +32,7 @@
   };
 
   # https://nixos.wiki/wiki/PipeWire
-  sound.enable = true;  # Setting to false may fix pipewire if no sound
+  sound.enable = true;  # Setting to false may be a fix
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -47,7 +47,7 @@
   # https://nixos.wiki/wiki/Fonts | https://github.com/ryanoasis/nerd-fonts
   fonts.packages = with pkgs; [
     noto-fonts
-    # You can pick specific nerdfonts with this override
+    # Specific nerdfont override
     (nerdfonts.override { fonts = [ "Iosevka" "JetBrainsMono" ]; })
   ];
 
