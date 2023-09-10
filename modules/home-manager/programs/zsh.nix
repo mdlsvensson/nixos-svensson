@@ -36,6 +36,7 @@
       >&2 echo "No arguments provided"
       return 1
     fi
+
     nix-env --delete-generations $1
     nix-store --gc
   }
@@ -45,8 +46,35 @@
       >&2 echo "No arguments provided"
       return 1
     fi
+
     gh repo clone $1
   }
+
+  function flake() {
+      if [ $# -eq 0 ]; then
+        >&2 echo "No arguments provided"
+        return 1
+      fi
+
+      if [ $1 == "update" ]; then
+        nix flake update /home/mdlsvensson/Repo/nixos-svensson
+        return 0
+      fi
+
+      if [ $1 == "switch" ] || [ $1 == "build" ]; then
+        cp /etc/nixos/hardware-configuration.nix ~/Repo/nixos-svensson/modules
+        git -C ~/Repo/nixos-svensson/modules add hardware-configuration.nix
+
+        sudo nixos-rebuild $1 --flake ~/Repo/nixos-svensson/#svensson
+
+        git -C ~/Repo/nixos-svensson/modules restore -staged hardware-configuration.nix
+        rm ~/Repo/nixos-svensson/modules/hardware-configuration.nix
+        
+        return 0
+      fi 
+  }
+
+  function
   '';
   dotDir = ".config/zsh";
 }
