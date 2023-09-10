@@ -8,7 +8,7 @@
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
-
+        networkmanager_dmenu
       ];
     };
     displayManager = {
@@ -58,14 +58,9 @@
     usbutils              # USB-related utilities
     pavucontrol           # PulseAudio GUI, works with pipewire with pulse server emulation
     nsxiv                 # Simple X Image Viewer
-    gnumake               # make
-    dotnet-sdk_7          # .NET
     notify-desktop        # Notifications
     pcmanfm               # File Manager
     libsForQt5.ark        # Archive Manager
-    networkmanager_dmenu  # NM for dmenu
-    rustc                 # Rust
-    cargo                 # Rust
   ];
 
   programs.dconf.enable = true;
