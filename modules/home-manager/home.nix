@@ -126,7 +126,6 @@ in
       enable = true;
       editor = "nvim";
     };
-    gh-dash.enable = true;
     lazygit.enable = true;
     zoxide.enable = true;
     nix-index.enable = true;
