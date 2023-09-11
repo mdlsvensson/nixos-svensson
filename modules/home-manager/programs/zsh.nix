@@ -67,11 +67,11 @@
 
         sudo nixos-rebuild $1 --flake ~/Repo/nixos-svensson/#svensson
 
-        git -C ~/Repo/nixos-svensson/modules restore -staged hardware-configuration.nix
+        git -C ~/Repo/nixos-svensson/modules restore --staged hardware-configuration.nix
         rm ~/Repo/nixos-svensson/modules/hardware-configuration.nix
-        
+
         return 0
-      fi 
+      fi
   }
 
   function
