@@ -1,11 +1,11 @@
 { colors, ... }:
 {
   enable = true;
-  font.name = "JetBrains Mono Nerd Font";
-  font.size = 12;
+  font.name = "JetBrainsMono Nerd Font";
+  font.size = 10;
   settings = {
     shell = "zsh";
-    confirm_os_window_close = 0; 
+    confirm_os_window_close = 0;
     scrollback_lines = 4000;
     scrollback_pager_history_size = 2048;
     window_padding_width = 10;
