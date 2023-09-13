@@ -12,6 +12,12 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+# ----------------- GAPS/BORDERS -----------------
+gaps inner 10
+gaps outer 1
+default_border pixel 1
+default_floating_border pixel 1
+
 # ----------------- BINDS -----------------
 # modkey
 set $mod Mod4
@@ -99,7 +105,7 @@ mode "resize" {
 bindsym $mod+z mode "resize"
 
 # ----------------- FONTS -----------------
-font pango:Noto Sans 10
+font pango:Iosevka Nerd Font Bold 10
 
 # ----------------- STARTUP -----------------
 exec_always --no-startup-id ~/.config/.screenlayout/layout.sh
@@ -124,4 +130,5 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 bar {
         status_command i3status
+        position top
 }
