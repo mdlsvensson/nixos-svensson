@@ -1,0 +1,21 @@
+################################################
+#### WM Colors
+################################################
+
+### COLORS ###
+
+    ## START THEMING WM (Borders and stuff)
+    # Theme name : Jellybeans
+
+    # Window color settings
+    # class                  border    backgr.   text     indicator
+    client.focused          "#2e2e2e" "#2e2e2e" "#99AD6A" "#2e2e2e"
+    client.unfocused        "#151515" "#151515" "#5b5b5b" "#151515"
+    client.focused_inactive "#151515" "#151515" "#5b5b5b" "#151515"
+    client.placeholder      "#151515" "#151515" "#5b5b5b" "#151515"
+    client.urgent           "#cf6a4c" "#cf6a4c" "#151515" "#cf6a4c"
+
+    client.background       #3b3b3b
+
+
+### STOP THEMING WM ###

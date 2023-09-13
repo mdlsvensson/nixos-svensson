@@ -1,4 +1,4 @@
-include ~/.config/i3/catppuccin-macchiato
+include ~/.config/i3/ayu-dark
 
 # ----------------- WORKSPACES -----------------
 set $ws1 "1"
