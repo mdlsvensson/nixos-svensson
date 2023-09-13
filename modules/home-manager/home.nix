@@ -25,10 +25,10 @@ in
       wings                   # Wings3D
       qbittorrent             # Torrent client
       gimp                    # Image editor
-      steam                   # Steam
       tor-browser-bundle-bin  # Tor Browser
       chessx                  # Chess tool
       stockfish               # Chess engine
+      akira-unstable          # UI design tool
     ];
     file = {
       # i3wm
@@ -103,10 +103,10 @@ in
       enable = true;
       settings.add_newline = true;
     };
-    exa = {
-      enable = true;
-      icons = true;
-    };
+    # eza = {
+    #   enable = true;
+    #   icons = true;
+    # };
     fzf = {
       enable = true;
       defaultCommand = "fd --type f";
