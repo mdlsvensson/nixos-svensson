@@ -48,7 +48,6 @@
 
   # https://nixos.wiki/wiki/Fonts | https://github.com/ryanoasis/nerd-fonts
   fonts.packages = with pkgs; [
-    noto-fonts
     # Specific nerdfont override
     (nerdfonts.override { fonts = [ "Iosevka" "JetBrainsMono" ]; })
   ];
