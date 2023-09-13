@@ -1,20 +1,11 @@
 { inputs, config, pkgs, ... }:
-let
-  catppuccin_name = "Catppuccin-Macchiato-Compact-Pink-dark";
-  catppuccin = pkgs.catppuccin-gtk.override {
-    accents = [ "pink" ];
-    size = "compact";
-    tweaks = [ "normal" ];
-    variant = "macchiato";
-  };
-in
 {
   imports = [
     inputs.nix-colors.homeManagerModule
     inputs.nixvim.homeManagerModules.nixvim
   ];
 
-  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-macchiato;
+  colorScheme = inputs.nix-colors.colorSchemes.ayu-dark;
 
   home = {
     username = "mdlsvensson";
@@ -75,13 +66,16 @@ in
 
   gtk = {
     enable = true;
+    font.name = "Iosevka Nerd Font Bold 10";
+    gtk2.extraConfig = "gtk-application-prefer-dark-theme = true";
+    gtk3.extraConfig.gtk-application-prefer-dark-theme = true;
     theme = {
-      name = catppuccin_name;
-      package = catppuccin;
+      package = pkgs.ayu-theme-gtk;
+      name = "Ayu-Dark";
     };
-    cursorTheme = {
-      name = "Catppuccin-Macchiato-Dark-Cursors";
-      package = pkgs.catppuccin-cursors.macchiatoDark;
+    iconTheme = {
+      package = pkgs.papirus-icon-theme;
+      name = "Papirus-Dark";
     };
   };
 
