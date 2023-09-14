@@ -14,7 +14,6 @@
         {
           block = "memory";
           format_mem = " $icon $mem_used_percents ";
-          format_swap = " $icon $swap_used_percents ";
         }
         {
           block = "cpu";
