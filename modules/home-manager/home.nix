@@ -23,6 +23,7 @@
     ];
     file = {
       # i3wm
+      ".config/i3blocks".source = ../../dots/i3blocks;
       ".config/i3".source = ../../dots/i3;
       # xrandr
       ".config/.screenlayout".source = ../../dots/.screenlayout;
