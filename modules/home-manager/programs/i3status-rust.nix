@@ -4,44 +4,33 @@
     top = {
       blocks = [
         {
-          block = "disk_space";
-          path = "/";
-          info_type = "available";
-          interval = 60;
-          warning = 20.0;
-          alert = 10.0;
-        }
-        {
           block = "memory";
-          format_mem = " $icon $mem_used_percents ";
+          format = " $icon$mem_used.eng";
         }
         {
           block = "cpu";
           interval = 1;
-        }
-        {
-          block = "load";
-          interval = 1;
-          format = " $icon $1m ";
+          format = "$icon$utilization";
         }
         { block = "sound"; }
         {
           block = "time";
-          interval = 60;
-          format = " $timestamp.datetime(f:'%a %d/%m %R') ";
+          format = {
+            short = "$timestamp.datetime(f:'%a - %r') ";
+            full = "$timestamp.datetime(f:'%a, %B %d - %R') ";
+          };
         }
       ];
       settings = {
         theme =  {
           theme = "solarized-dark";
           overrides = {
-            idle_bg = "#123456";
-            idle_fg = "#abcdef";
+            idle_bg = "#BFBDB6";
+            idle_fg = "#0B0E14";
           };
         };
       };
-      icons = "awesome5";
-      theme = "gruvbox-dark";
+      icons = "awesome4";
     };
   };
 }
