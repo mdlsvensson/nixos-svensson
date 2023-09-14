@@ -5,19 +5,19 @@
       blocks = [
         {
           block = "memory";
-          format = " $icon$mem_used.eng";
+          format = "  $icon$mem_used.eng";
         }
         {
           block = "cpu";
           interval = 1;
-          format = "$icon$utilization";
+          format = "  $icon$utilization ";
         }
         { block = "sound"; }
         {
           block = "time";
           format = {
-            short = "$timestamp.datetime(f:'%a - %r') ";
-            full = "$timestamp.datetime(f:'%a, %B %d - %R') ";
+            short = " $timestamp.datetime(f:'%a - %R')  ";
+            full = " $timestamp.datetime(f:'%A, %b %d - %R')  ";
           };
         }
       ];
@@ -27,6 +27,7 @@
           overrides = {
             idle_bg = "#BFBDB6";
             idle_fg = "#0B0E14";
+            separator = "";
           };
         };
       };
