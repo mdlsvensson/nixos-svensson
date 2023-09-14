@@ -62,6 +62,7 @@
     notify-desktop        # Notifications
     pcmanfm               # File Manager
     libsForQt5.ark        # Archive Manager
+    hsetroot              # Wallpaper
   ];
 
   programs.steam = {
