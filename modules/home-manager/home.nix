@@ -82,6 +82,7 @@
     zsh = import ./programs/zsh.nix;
     kitty = import ./programs/kitty.nix { inherit (config.colorScheme) colors; };
     nixvim = import ./programs/nixvim.nix;
+    i3status-rust = import ./programs/i3status-rust.nix;
     git = {
       enable = true;
       userName  = "mdlsvensson";
