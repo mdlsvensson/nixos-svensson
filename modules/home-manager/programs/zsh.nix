@@ -7,7 +7,7 @@
     fz = "fzf";
     cd = "z";
     vi = "nvim";
-    ls = "exa -a";
+    ls = "eza -a";
     bg = "hsetroot -solid #212731";
     # NixOS
     flake-build = "sudo nixos-rebuild build --flake ~/Repo/nixos-svensson/#svensson";
