@@ -9,8 +9,8 @@
       enable = true;
       extraPackages = with pkgs; [
         dmenu
-        i3status
         networkmanager_dmenu
+        i3blocks
       ];
     };
     displayManager = {
