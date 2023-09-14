@@ -15,7 +15,7 @@
     client.placeholder      "#151515" "#151515" "#5b5b5b" "#151515"
     client.urgent           "#cf6a4c" "#cf6a4c" "#151515" "#cf6a4c"
 
-    client.background       #3b3b3b
+    client.background       #0B0E14
 
 
 ### STOP THEMING WM ###

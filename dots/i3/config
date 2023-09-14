@@ -131,4 +131,14 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bar {
         status_command i3status
         position top
+
+        colors {
+                background #0B0E14
+                statusline #BFBDB6
+
+                focused_workspace  #151515 #BFBDB6 #151515
+                active_workspace   #151515 #151515 #5b5b5b
+                inactive_workspace #151515 #151515 #5b5b5b
+                urgent_workspace   #151515 #D95757 #5b5b5b
+        }
 }
