@@ -2,12 +2,12 @@
   description = "Personal NixOS configuration for dektop/laptop - nothing fancy.";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";                            # https://channels.nixos.org/
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";                   # https://channels.nixos.org/
     nixvim.url = "github:nix-community/nixvim";                            # https://github.com/nix-community/nixvim
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     nix-colors.url = "github:misterio77/nix-colors";                       # https://github.com/Misterio77/nix-colors
     nix-colors.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager/release-23.05";  # https://github.com/nix-community/home-manager
+    home-manager.url = "github:nix-community/home-manager";                 # https://github.com/nix-community/home-manager
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 

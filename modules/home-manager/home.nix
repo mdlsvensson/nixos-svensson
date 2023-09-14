@@ -96,10 +96,10 @@
       enable = true;
       settings.add_newline = true;
     };
-    # eza = {
-    #   enable = true;
-    #   icons = true;
-    # };
+    eza = {
+      enable = true;
+      icons = true;
+    };
     fzf = {
       enable = true;
       defaultCommand = "fd --type f";
