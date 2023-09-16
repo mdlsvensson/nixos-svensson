@@ -23,7 +23,6 @@
   zplug = {
     enable = true;
     plugins = [
-      { name = "nvbn/thefuck"; }
       { name = "zsh-users/zsh-autosuggestions"; }
       { name = "zsh-users/zsh-syntax-highlighting"; }
     ];
