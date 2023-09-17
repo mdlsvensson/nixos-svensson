@@ -117,6 +117,7 @@ font pango:Iosevka Nerd Font Bold 10
 
 # ----------------- STARTUP -----------------
 exec_always --no-startup-id ~/.config/.screenlayout/layout.sh
+exec hsetroot -solid #212731
 
 # ----------------- FLOATING DEFAULT -----------------
 for_window [instance="Godot_Engine"] floating enable
