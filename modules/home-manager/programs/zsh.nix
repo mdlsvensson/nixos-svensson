@@ -9,11 +9,6 @@
     vi = "nvim";
     ls = "eza -a";
     bg = "hsetroot -solid #212731";
-    # NixOS
-    flake-build = "sudo nixos-rebuild build --flake ~/Repo/nixos-svensson/#svensson";
-    flake-switch = "sudo nixos-rebuild switch --flake ~/Repo/nixos-svensson/#svensson";
-    flake-update = "nix flake update /home/mdlsvensson/Repo/nixos-svensson";
-    env-gen = "nix-env --list-generations";
     # Lazygit
     lg = "lazygit";
     lgnix = "lazygit -p ~/Repo/nixos-svensson";
