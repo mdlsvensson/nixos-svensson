@@ -19,7 +19,7 @@
       tor-browser-bundle-bin  # Tor Browser
       chessx                  # Chess tool
       stockfish               # Chess engine
-      akira-unstable          # UI design tool
+      r2mod_cli               # Risk of Rain 2 mod manager
     ];
     file = {
       # i3wm
