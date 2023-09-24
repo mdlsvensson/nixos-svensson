@@ -17,9 +17,8 @@
       qbittorrent             # Torrent client
       gimp                    # Image editor
       tor-browser-bundle-bin  # Tor Browser
-      chessx                  # Chess tool
-      stockfish               # Chess engine
       r2mod_cli               # Risk of Rain 2 mod manager
+      r2modman                # Risk of Rain 2 mod manager
     ];
     file = {
       # i3wm
