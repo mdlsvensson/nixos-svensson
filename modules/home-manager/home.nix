@@ -21,8 +21,6 @@
       r2modman                # Risk of Rain 2 mod manager
     ];
     file = {
-      # xmonad
-      ".xmonad".source = ../../dots/.xmonad;
       # i3wm
       ".config/i3".source = ../../dots/i3;
       # xrandr
