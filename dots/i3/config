@@ -8,17 +8,31 @@ client.urgent           "#cf6a4c" "#cf6a4c" "#151515" "#cf6a4c"
 
 client.background       "#0B0E14"
 
+# ----------------- MONITORS ------------------
+set $monitor1 "HDMI-A-0"
+set $monitor2 "DP-0"
+
 # ----------------- WORKSPACES -----------------
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
+workspace $ws1 output $monitor1
+workspace $ws2 output $monitor1
+workspace $ws3 output $monitor1
+workspace $ws4 output $monitor1
+workspace $ws5 output $monitor1
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+workspace $ws6 output $monitor2
+workspace $ws7 output $monitor2
+workspace $ws8 output $monitor2
+workspace $ws9 output $monitor2
+workspace $ws10 output $monitor2
 
 # ----------------- GAPS/BORDERS -----------------
 gaps inner 10
@@ -37,10 +51,8 @@ bindsym $mod+f exec pcmanfm
 bindsym $mod+w exec firefox
 # kill
 bindsym $mod+c kill
-# dmenu
+# rofi
 bindsym $mod+d exec --no-startup-id rofi -show run
-# nm_dmenu
-bindsym $mod+n exec --no-startup-id networkmanager_dmenu
 # focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -117,7 +129,7 @@ font pango:Iosevka Nerd Font Bold 10
 
 # ----------------- STARTUP -----------------
 exec_always --no-startup-id ~/.config/.screenlayout/layout.sh
-exec hsetroot -solid #212731
+exec_always --no-startup-id "hsetroot -solid #212731"
 
 # ----------------- FLOATING DEFAULT -----------------
 for_window [instance="Godot_Engine"] floating enable
