@@ -7,11 +7,6 @@
     libinput.mouse.accelProfile = "flat";
     windowManager.i3 = {
       enable = true;
-      extraPackages = with pkgs; [
-        dmenu
-        networkmanager_dmenu
-        i3blocks
-      ];
     };
     displayManager = {
       lightdm = {

@@ -38,7 +38,7 @@ bindsym $mod+w exec firefox
 # kill
 bindsym $mod+c kill
 # dmenu
-bindsym $mod+d exec --no-startup-id dmenu_run
+bindsym $mod+d exec --no-startup-id rofi -show run
 # nm_dmenu
 bindsym $mod+n exec --no-startup-id networkmanager_dmenu
 # focus
