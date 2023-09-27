@@ -12,7 +12,6 @@
       xmonad = {
         enable = true;
         enableContribAndExtras = true;
-        config = builtins.readFile ../../../dots/.xmonad/xmonad.hs;
       };
     };
     displayManager = {
