@@ -27,6 +27,8 @@
       ".config/.screenlayout".source = ../../dots/.screenlayout;
       # vscode
       ".config/Code/User/profiles".source = ../../dots/Code/User/profiles;
+      # rofi (theme only)
+      ".config/rofi/themes".source = ../../dots/rofi/themes;
     };
   };
 
@@ -81,7 +83,7 @@
     kitty = import ./programs/kitty.nix { inherit (config.colorScheme) colors; };
     nixvim = import ./programs/nixvim.nix;
     i3status-rust = import ./programs/i3status-rust.nix;
-    rofi = import ./programs/rofi;
+    rofi = import ./programs/rofi.nix;
     git = {
       enable = true;
       userName  = "mdlsvensson";
