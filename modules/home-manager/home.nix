@@ -81,11 +81,7 @@
     kitty = import ./programs/kitty.nix { inherit (config.colorScheme) colors; };
     nixvim = import ./programs/nixvim.nix;
     i3status-rust = import ./programs/i3status-rust.nix;
-    rofi = {
-      enable = true;
-      location = "top";
-      theme = import ./programs/rofi-theme.nix;
-    };
+    rofi = import ./programs/rofi;
     git = {
       enable = true;
       userName  = "mdlsvensson";
