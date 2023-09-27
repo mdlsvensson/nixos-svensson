@@ -5,8 +5,15 @@
     enable = true;
     layout = "us";
     libinput.mouse.accelProfile = "flat";
-    windowManager.i3 = {
-      enable = true;
+    windowManager = {
+      i3 = {
+        enable = true;
+      };
+      xmonad = {
+        enable = true;
+        enableContribAndExtras = true;
+        config = builtins.readFile ../../../dots/.xmonad/xmonad.hs;
+      };
     };
     displayManager = {
       lightdm = {
@@ -50,12 +57,11 @@
       enable = true;
       support32Bit = true;
     };
-    pulse.enable = true;  # Pulse server emulation
+    pulse.enable = true;
   };
 
   # https://nixos.wiki/wiki/Fonts | https://github.com/ryanoasis/nerd-fonts
   fonts.packages = with pkgs; [
-    # Specific nerdfont override
     (nerdfonts.override { fonts = [ "Iosevka" "JetBrainsMono" ]; })
   ];
 
@@ -69,7 +75,7 @@
     notify-desktop        # Notifications
     pcmanfm               # File Manager
     libsForQt5.ark        # Archive Manager
-    hsetroot              # Wallpaper
+    hsetroot              # Background color
   ];
 
   programs.steam = {
