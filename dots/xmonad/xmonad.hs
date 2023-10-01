@@ -17,7 +17,7 @@ myFocusFollowsMouse = True
 myClickJustFocuses :: Bool
 myClickJustFocuses = False
 
-myBorderWidth   = 1
+myBorderWidth   = 2
 
 myModMask       = mod4Mask
 
@@ -225,7 +225,7 @@ myStartupHook = return ()
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = do
-  xmproc <- spawnPipe "xmobar -x 0 ~/.config/xmonad/xmobar/.xmobarrc"
+  xmproc <- spawnPipe "xmobar ~/.config/xmonad/xmobar/.xmobarrc"
   xmonad defaults
 
 -- A structure containing your configuration settings, overriding
