@@ -2,11 +2,14 @@
 import XMonad
 import Data.Monoid
 import System.Exit
+import XMonad.Util.Run
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
 myTerminal      = "kitty"
+myFileManager   = "pcmanfm"
+myBrowser       = "firefox"
 
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
@@ -22,17 +25,23 @@ myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 
 -- THEME
 
-myNormalBorderColor  = "#dddddd"
-myFocusedBorderColor = "#ff0000"
+myNormalBorderColor  = "#151515"
+myFocusedBorderColor = "#2e2e2e"
 
 -- KEYBINDS
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch a terminal
-    [ ((modm, xK_Return), spawn $ XMonad.terminal conf)
+    [ ((modm,               xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch rofi
     , ((modm,               xK_d     ), spawn "rofi -show run")
+
+    -- launch a file manager
+    , ((modm,               xK_f     ), spawn myFileManager)
+
+    -- launch a browser
+    , ((modm,               xK_b     ), spawn myBrowser)
 
     -- close focused window
     , ((modm,               xK_c     ), kill)
@@ -210,13 +219,14 @@ myLogHook = return ()
 --
 -- By default, do nothing.
 myStartupHook = return ()
-
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
-main = xmonad defaults
+main = do
+  xmproc <- spawnPipe "xmobar -x 0 ~/.config/xmonad/xmobar.hs"
+  xmonad defaults
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will

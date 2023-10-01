@@ -6,14 +6,13 @@
     layout = "us";
     libinput.mouse.accelProfile = "flat";
     windowManager = {
-      i3 = {
-        enable = true;
-      };
       xmonad = {
         enable = true;
         enableContribAndExtras = true;
-        config = builtins.readFile ../../../dots/.xmonad/xmonad.hs;
+        config = builtins.readFile ../../../dots/xmonad/xmonad.hs;
+        extraPackages = haskellPackages: [ haskellPackages.xmobar ];
       };
+      i3.enable = true;
     };
     displayManager = {
       lightdm = {
@@ -29,7 +28,7 @@
         };
         background = "#212731";
       };
-      defaultSession = "none+i3";
+      defaultSession = "none+xmonad";
       sessionCommands = ''
         xrandr --output DisplayPort-0 --mode 1920x1080 --pos 1920x0 --rotate left --output HDMI-A-0 --primary --mode 1920x1080 --pos 0x288 --rotate normal
         hsetroot -solid #212731
@@ -75,11 +74,10 @@
     maim                  # Screenshots
     usbutils              # USB-related utilities
     pavucontrol           # PulseAudio GUI, works with pipewire with pulse server emulation
-    nsxiv                 # Simple X Image Viewer
+    feh                   # Image viewer
     notify-desktop        # Notifications
     pcmanfm               # File Manager
     libsForQt5.ark        # Archive Manager
-    hsetroot              # Background color
   ];
 
   programs.steam = {
