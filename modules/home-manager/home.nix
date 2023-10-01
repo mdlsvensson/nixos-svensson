@@ -23,8 +23,6 @@
     file = {
       # i3wm
       ".config/i3".source = ../../dots/i3;
-      # xrandr
-      ".config/.screenlayout".source = ../../dots/.screenlayout;
       # vscode
       ".config/Code/User/profiles".source = ../../dots/Code/User/profiles;
       # rofi (theme only)
