@@ -225,7 +225,7 @@ myStartupHook = return ()
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = do
-  xmproc <- spawnPipe "xmobar -x 0 ~/.config/xmonad/xmobar.hs"
+  xmproc <- spawnPipe "xmobar -x 0 ~/.config/xmonad/xmobar/.xmobarrc"
   xmonad defaults
 
 -- A structure containing your configuration settings, overriding

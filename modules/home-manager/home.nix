@@ -21,6 +21,8 @@
       r2modman                # Risk of Rain 2 mod manager
     ];
     file = {
+      # xmobar
+      ".config/xmonad/xmobar".source = ../../dots/xmonad/xmobar;
       # i3wm
       ".config/i3".source = ../../dots/i3;
       # vscode
