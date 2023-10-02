@@ -8,7 +8,6 @@
     cd = "z";
     vi = "nvim";
     ls = "eza -a";
-    bg = "hsetroot -solid #212731";
     # Lazygit
     lg = "lazygit";
     lgnix = "lazygit -p ~/Repo/nixos-svensson";
