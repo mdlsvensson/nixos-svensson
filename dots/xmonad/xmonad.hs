@@ -2,10 +2,18 @@
 import XMonad
 import Data.Monoid
 import System.Exit
+
 import XMonad.Util.SpawnOnce
 import XMonad.Util.Run
-import XMonad.Hooks.ManageDocks
+import XMonad.Util.Loggers
+
 import XMonad.Layout.Spacing
+
+import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.StatusBar
+import XMonad.Hooks.StatusBar.PP
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -44,7 +52,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_f     ), spawn myFileManager)
 
     -- launch a browser
-    , ((modm,               xK_b     ), spawn myBrowser)
+    , ((modm .|. shiftMask, xK_Return), spawn myBrowser)
 
     -- close focused window
     , ((modm,               xK_c     ), kill)
@@ -65,19 +73,19 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm,               xK_j     ), windows W.focusDown)
 
     -- Move focus to the previous window
-    , ((modm,               xK_k     ), windows W.focusUp  )
+    , ((modm,               xK_k     ), windows W.focusUp)
 
     -- Move focus to the master window
-    , ((modm,               xK_m     ), windows W.focusMaster  )
+    , ((modm,               xK_m     ), windows W.focusMaster)
 
     -- Swap the focused window and the master window
-    , ((modm .|. shiftMask, xK_Return), windows W.swapMaster)
+    , ((modm .|. shiftMask, xK_m     ), windows W.swapMaster)
 
     -- Swap the focused window with the next window
-    , ((modm .|. shiftMask, xK_j     ), windows W.swapDown  )
+    , ((modm .|. shiftMask, xK_j     ), windows W.swapDown)
 
     -- Swap the focused window with the previous window
-    , ((modm .|. shiftMask, xK_k     ), windows W.swapUp    )
+    , ((modm .|. shiftMask, xK_k     ), windows W.swapUp)
 
     -- Shrink the master area
     , ((modm,               xK_h     ), sendMessage Shrink)
@@ -159,7 +167,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayoutHook = avoidStruts (spacingRaw False (Border 0 4 4 4) True (Border 4 4 4 4) True
+myLayoutHook = avoidStruts (spacingRaw False (Border 0 4 4 4) True (Border 8 4 4 4) True
              $ tiled ||| Mirror tiled ||| Full)
   where
      -- default tiling algorithm partitions the screen into two panes
@@ -224,14 +232,31 @@ myLogHook = return ()
 -- By default, do nothing.
 myStartupHook = return ()
 
+myXmobarPP :: PP
+myXmobarPP = def
+    { ppCurrent = xmobarColor "#c3e88d" "" . wrap "[" "]"
+    , ppVisible = xmobarColor "#c3e88d" "" . wrap "(" ")"
+    , ppHidden  = xmobarColor "#82AAFF" "" . wrap " " " "
+    , ppHiddenNoWindows = xmobarColor "#F07178" "" . wrap " " " "
+    , ppUrgent  = xmobarColor "#C45500" "" . wrap "!" "!"
+    , ppSep     = " | "
+    , ppOrder   = \(ws : l : _ : wins : _) -> [ws, l, wins]
+    }
+
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
-main = do
-  xmproc <- spawnPipe "xmobar ~/.config/xmonad/xmobar/.xmobarrc"
-  xmonad $ docks defaults
+main :: IO ()
+main = xmonad
+     . ewmhFullscreen
+     . ewmh
+     . withEasySB (statusBarProp "xmobar ~/.config/xmonad/xmobar/.xmobarrc" (pure myXmobarPP)) toggleStrutsKey
+     $ docks defaults
+  where
+    toggleStrutsKey :: XConfig Layout -> (KeyMask, KeySym)
+    toggleStrutsKey XConfig{ modMask = m } = (m, xK_b)
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
