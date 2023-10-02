@@ -2,7 +2,9 @@
 import XMonad
 import Data.Monoid
 import System.Exit
+import XMonad.Util.SpawnOnce
 import XMonad.Util.Run
+import XMonad.Hooks.ManageDocks
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -10,6 +12,7 @@ import qualified Data.Map        as M
 myTerminal      = "kitty"
 myFileManager   = "pcmanfm"
 myBrowser       = "firefox"
+myLauncher      = "rofi -show run"
 
 myFocusFollowsMouse :: Bool
 myFocusFollowsMouse = True
@@ -24,7 +27,6 @@ myModMask       = mod4Mask
 myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 
 -- THEME
-
 myNormalBorderColor  = "#151515"
 myFocusedBorderColor = "#2e2e2e"
 
@@ -35,7 +37,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm,               xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch rofi
-    , ((modm,               xK_d     ), spawn "rofi -show run")
+    , ((modm,               xK_d     ), spawn myLauncher)
 
     -- launch a file manager
     , ((modm,               xK_f     ), spawn myFileManager)
@@ -97,7 +99,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     --
     -- , ((modm              , xK_b     ), sendMessage ToggleStruts)
 
-    -- Quit xmonad
+    -- End session
     , ((modm .|. shiftMask, xK_q     ), io (exitWith ExitSuccess))
 
     -- Restart xmonad
@@ -156,7 +158,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = tiled ||| Mirror tiled ||| Full
+myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full)
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -218,7 +220,8 @@ myLogHook = return ()
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = return ()
+myStartupHook = do
+  spawnOnce
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
 
@@ -226,7 +229,7 @@ myStartupHook = return ()
 --
 main = do
   xmproc <- spawnPipe "xmobar ~/.config/xmonad/xmobar/.xmobarrc"
-  xmonad defaults
+  xmonad $ docks defaults
 
 -- A structure containing your configuration settings, overriding
 -- fields in the default config. Any you don't override, will
