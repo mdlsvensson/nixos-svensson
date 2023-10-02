@@ -5,6 +5,7 @@ import System.Exit
 import XMonad.Util.SpawnOnce
 import XMonad.Util.Run
 import XMonad.Hooks.ManageDocks
+import XMonad.Layout.Spacing
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -27,8 +28,8 @@ myModMask       = mod4Mask
 myWorkspaces    = ["1","2","3","4","5","6","7","8","9"]
 
 -- THEME
-myNormalBorderColor  = "#151515"
-myFocusedBorderColor = "#2e2e2e"
+myNormalBorderColor  = "#2e2e2e"
+myFocusedBorderColor = "#434343"
 
 -- KEYBINDS
 myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
@@ -158,7 +159,8 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full)
+myLayoutHook = avoidStruts (spacingRaw False (Border 0 4 4 4) True (Border 4 4 4 4) True
+             $ tiled ||| Mirror tiled ||| Full)
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -220,8 +222,8 @@ myLogHook = return ()
 -- per-workspace layout choices.
 --
 -- By default, do nothing.
-myStartupHook = do
-  spawnOnce
+myStartupHook = return ()
+
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
 
@@ -253,7 +255,7 @@ defaults = def {
         mouseBindings      = myMouseBindings,
 
       -- hooks, layouts
-        layoutHook         = myLayout,
+        layoutHook         = myLayoutHook,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
         logHook            = myLogHook,
