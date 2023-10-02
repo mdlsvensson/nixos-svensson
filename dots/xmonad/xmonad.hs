@@ -234,14 +234,20 @@ myStartupHook = return ()
 
 myXmobarPP :: PP
 myXmobarPP = def
-    { ppCurrent = xmobarColor "#c3e88d" "" . wrap "[" "]"
-    , ppVisible = xmobarColor "#c3e88d" "" . wrap "(" ")"
-    , ppHidden  = xmobarColor "#82AAFF" "" . wrap " " " "
-    , ppHiddenNoWindows = xmobarColor "#F07178" "" . wrap " " " "
-    , ppUrgent  = xmobarColor "#C45500" "" . wrap "!" "!"
-    , ppSep     = " | "
-    , ppOrder   = \(ws : l : _ : wins : _) -> [ws, l, wins]
+    { ppCurrent         = wrap " " "" . xmobarBorder "Top" "#8be9fd" 2
+    , ppTitle           = (\str -> "")
+    , ppLayout          = (\str -> "")
+    , ppHidden          = white . wrap " " ""
+    , ppUrgent          = red . wrap (yellow "!") (yellow "!")
     }
+  where
+    blue, lowWhite, magenta, red, white, yellow :: String -> String
+    magenta  = xmobarColor "#ff79c6" ""
+    blue     = xmobarColor "#bd93f9" ""
+    white    = xmobarColor "#E6E1CF" ""
+    yellow   = xmobarColor "#f1fa8c" ""
+    red      = xmobarColor "#ff5555" ""
+    lowWhite = xmobarColor "#BFBDB6" ""
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
