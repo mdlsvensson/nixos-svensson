@@ -2,11 +2,9 @@ Config {
 
    -- appearance
      font =         "Iosevka Nerd Font Bold 10"
-   , bgColor =      "black"
-   , fgColor =      "#646464"
+   , bgColor =      "#0F1419"
+   , fgColor =      "#E6E1CF"
    , position =     Top
-   , border =       BottomB
-   , borderColor =  "#646464"
 
    -- layout
    , sepChar =  "%"   -- delineator between plugin names and straight text
