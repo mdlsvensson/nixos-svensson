@@ -21,6 +21,8 @@
       r2modman                # Risk of Rain 2 mod manager
     ];
     file = {
+      # Wallpaper
+      "Pictures/wallpaper.png".source = ../../wallpaper.png;
       # xmobar
       ".config/xmonad/xmobar".source = ../../dots/xmonad/xmobar;
       # i3wm
