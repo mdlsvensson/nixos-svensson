@@ -10,7 +10,6 @@
         enable = true;
         enableContribAndExtras = true;
         config = builtins.readFile ../../../dots/xmonad/xmonad.hs;
-        extraPackages = haskellPackages: [ haskellPackages.xmobar ];
       };
       i3.enable = true;
     };
@@ -78,6 +77,7 @@
     notify-desktop        # Notifications
     pcmanfm               # File Manager
     libsForQt5.ark        # Archive Manager
+    xmobar                # Status bar
   ];
 
   programs.steam = {
