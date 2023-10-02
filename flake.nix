@@ -7,7 +7,10 @@
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
     nix-colors.url = "github:misterio77/nix-colors";                       # https://github.com/Misterio77/nix-colors
     nix-colors.inputs.nixpkgs.follows = "nixpkgs";
-    home-manager.url = "github:nix-community/home-manager";                 # https://github.com/nix-community/home-manager
+    base16-schemes.url = "github:mdlsvensson/base16-schemes";
+    base16-schemes.flake = false;
+    nix-colors.inputs.base16-schemes.follows = "base16-schemes";
+    home-manager.url = "github:nix-community/home-manager";                # https://github.com/nix-community/home-manager
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
