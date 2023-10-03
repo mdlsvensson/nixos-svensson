@@ -33,18 +33,6 @@ Config { overrideRedirect = False
                     , Run Date "%a %Y-%m-%d <fc=#8be9fd>%H:%M</fc>" "date" 10
                     , Run XMonadLog
                     ]
-    --    , commands = [
-    --                     -- Cpu usage in percent
-    --                 , Run Cpu ["-t", "<fn=2>\xf108</fn>  cpu: (<total>%)","-H","50","--high","red"] 20
-    --                     -- Ram used number and percent
-    --                 , Run Memory ["-t", "<fn=2>\xf233</fn>  mem: <used>M (<usedratio>%)"] 20
-    --                     -- Disk space free
-    --                 , Run DiskU [("/", "<fn=2>\xf0c7</fn>  hdd: <free> free")] [] 60
-    --                     -- Time and date
-    --                 , Run Date "<fn=2>\xf017</fn>  %b %d %Y - (%H:%M) " "date" 50
-    --                     -- Prints out the left side items such as workspaces, layout, etc.
-    --                 , Run XMonadLog
-    --                 ]
        , sepChar  = "%"
        , alignSep = "}{"
        , template = "%XMonadLog% }{ %alsa:default:Master% |  %cpu% | 󰍛 %memory% | %EGPF% | %date% "
