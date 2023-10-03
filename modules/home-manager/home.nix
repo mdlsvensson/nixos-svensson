@@ -5,7 +5,7 @@
     inputs.nixvim.homeManagerModules.nixvim
   ];
 
-  colorScheme = inputs.nix-colors.colorSchemes.falu;
+  colorScheme = inputs.nix-colors.colorSchemes.ayu-dark;
 
   home = {
     username = "mdlsvensson";

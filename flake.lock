@@ -3,11 +3,11 @@
     "base16-schemes": {
       "flake": false,
       "locked": {
-        "lastModified": 1696249724,
-        "narHash": "sha256-Xcuy42ujHAYuE9VZYt/RYi9/+NQB9C3oNa3WwPwvbjQ=",
+        "lastModified": 1696272380,
+        "narHash": "sha256-c7PnQiK9zGw4LzrrgPDLOWXYHHoU7Em94dcXFKB8A1E=",
         "owner": "mdlsvensson",
         "repo": "base16-schemes",
-        "rev": "5e3e9a2d4c12168917975f321febe10905101ba7",
+        "rev": "cf5be76a60219aad6159cb2eea8d642c2c8acdd8",
         "type": "github"
       },
       "original": {
@@ -211,11 +211,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1696250133,
-        "narHash": "sha256-DkN2iUGv5X5s0iEvkqYep51P1EmUmNxlO+dmFfwadE8=",
+        "lastModified": 1696335513,
+        "narHash": "sha256-NBrQ0ij5nbCAdgo8A3FUx0HeVlHayIKhq4p3CTuS2uQ=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "382973b627ed8235d7bafd09a9960039f35a32ab",
+        "rev": "418bf5da17a2f6d1ae942899882f7ff62d2ee145",
         "type": "github"
       },
       "original": {

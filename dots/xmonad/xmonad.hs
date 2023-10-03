@@ -234,7 +234,7 @@ myStartupHook = return ()
 
 myXmobarPP :: PP
 myXmobarPP = def
-    { ppCurrent         = wrap " " "" . xmobarBorder "Top" "#8be9fd" 2
+    { ppCurrent         = wrap " " "" . xmobarColor "#ffffff" "#333333"
     , ppTitle           = (\str -> "")
     , ppLayout          = (\str -> "")
     , ppHidden          = white . wrap " " ""
