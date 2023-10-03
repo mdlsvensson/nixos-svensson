@@ -73,7 +73,7 @@ bindsym $mod+b split h
 # vertical split
 bindsym $mod+v split v
 # layouts
-bindsym $mod+s layout stacking
+bindsym $mod+s exec --no-startup-id i3a-master-stack --stack dwm
 bindsym $mod+t layout tabbed
 bindsym $mod+e layout toggle split
 # float focused
