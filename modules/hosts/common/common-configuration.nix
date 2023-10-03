@@ -33,7 +33,7 @@
         };
         background = "#212731";
       };
-      defaultSession = "none+xmonad";
+      defaultSession = "none+i3";
       sessionCommands = onLogin;
     };
   };
