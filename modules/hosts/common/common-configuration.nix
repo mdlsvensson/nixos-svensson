@@ -12,12 +12,12 @@
     layout = "us";
     libinput.mouse.accelProfile = "flat";
     windowManager = {
+      i3.enable = true;
       xmonad = {
         enable = true;
         enableContribAndExtras = true;
         config = builtins.readFile ../../../dots/xmonad/xmonad.hs;
       };
-      i3.enable = true;
     };
     displayManager = {
       lightdm = {
