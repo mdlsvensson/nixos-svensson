@@ -127,10 +127,6 @@ bindsym $mod+z mode "resize"
 # ----------------- FONTS -----------------
 font pango:Iosevka Nerd Font Bold 10
 
-# ----------------- STARTUP -----------------
-exec_always --no-startup-id ~/.config/.screenlayout/layout.sh
-exec_always --no-startup-id i3a-master-stack --stack dwm
-
 # ----------------- FLOATING DEFAULT -----------------
 for_window [instance="Godot_Engine"] floating enable
 
