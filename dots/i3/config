@@ -1,7 +1,7 @@
 # Window color settings
 # class                  border    backgr.   text     indicator
-client.focused          "#2e2e2e" "#2e2e2e" "#99AD6A" "#2e2e2e"
-client.unfocused        "#151515" "#151515" "#5b5b5b" "#151515"
+client.focused          "#BFBDB6" "#BFBDB6" "#99AD6A" "#2e2e2e"
+client.unfocused        "#3E4B59" "#3E4B59" "#5b5b5b" "#151515"
 client.focused_inactive "#151515" "#151515" "#5b5b5b" "#151515"
 client.placeholder      "#151515" "#151515" "#5b5b5b" "#151515"
 client.urgent           "#cf6a4c" "#cf6a4c" "#151515" "#cf6a4c"
@@ -37,8 +37,8 @@ workspace $ws10 output $monitor2
 # ----------------- GAPS/BORDERS -----------------
 gaps inner 10
 gaps outer 1
-default_border pixel 1
-default_floating_border pixel 1
+default_border pixel 2
+default_floating_border pixel 2
 
 # ----------------- BINDS -----------------
 # modkey
@@ -146,15 +146,9 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 ## Screenshots
-bindsym Print exec --no-startup-id maim "/home/mdlsvensson/Pictures/$(date)"
-bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/mdlsvensson/Pictures/$(date)"
-bindsym Shift+Print exec --no-startup-id maim --select "/home/mdlsvensson/Pictures/$(date)"
-
-## Clipboard Screenshots
-bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
-bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
-bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
-
+bindsym Print exec --no-startup-id maim "/home/mdlsvensson/Pictures/screenshots/$(date)"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/mdlsvensson/Pictures/screenshots/$(date)"
+bindsym Shift+Print exec --no-startup-id maim --select "/home/mdlsvensson/Pictures/screenshots/$(date)"
 bar {
         status_command i3status-rs ~/.config/i3status-rust/config-top.toml
         position top
