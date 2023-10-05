@@ -25,8 +25,6 @@
       "Pictures/wallpaper.png".source = ../../wallpaper.png;
       # i3wm
       ".config/i3".source = ../../dots/i3;
-      # vscode
-      ".config/Code/User/profiles".source = ../../dots/Code/User/profiles;
     };
   };
 
