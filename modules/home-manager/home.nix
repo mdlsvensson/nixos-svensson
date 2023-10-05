@@ -27,8 +27,6 @@
       ".config/i3".source = ../../dots/i3;
       # vscode
       ".config/Code/User/profiles".source = ../../dots/Code/User/profiles;
-      # rofi (theme only)
-      ".config/rofi/themes".source = ../../dots/rofi/themes;
     };
   };
 

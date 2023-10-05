@@ -12,7 +12,7 @@ in {
 
       background = mkLiteral "#${colors.base00}";
       background-color = mkLiteral "@background";
-      foreground = mkLiteral "#${colors.base05}";
+      foreground = mkLiteral "#${colors.base04}";
       foreground-color = mkLiteral "@foreground";
       border-color = mkLiteral "@foreground";
       separatorcolor = mkLiteral "@border-color";
@@ -25,9 +25,9 @@ in {
       selected-normal-background = mkLiteral "@foreground";
       selected-normal-foreground = mkLiteral "@background";
 
-      active-background = mkLiteral "#${colors.base09}";
+      active-background = mkLiteral "#${colors.base0A}";
       active-foreground = mkLiteral "@background";
-      alternate-active-background = mkLiteral "#${colors.base09}";
+      alternate-active-background = mkLiteral "#${colors.base0A}";
       alternate-active-foreground = mkLiteral "@background";
       selected-active-background = mkLiteral "@foreground";
       selected-active-foreground = mkLiteral "@background";

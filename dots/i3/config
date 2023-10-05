@@ -4,7 +4,7 @@ client.focused          "#BFBDB6" "#BFBDB6" "#99AD6A" "#2e2e2e"
 client.unfocused        "#3E4B59" "#3E4B59" "#5b5b5b" "#151515"
 client.focused_inactive "#151515" "#151515" "#5b5b5b" "#151515"
 client.placeholder      "#151515" "#151515" "#5b5b5b" "#151515"
-client.urgent           "#cf6a4c" "#cf6a4c" "#151515" "#cf6a4c"
+client.urgent           "#F07178" "#F07178" "#151515" "#F07178"
 
 client.background       "#0F1419"
 
