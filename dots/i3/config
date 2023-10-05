@@ -6,7 +6,7 @@ client.focused_inactive "#151515" "#151515" "#5b5b5b" "#151515"
 client.placeholder      "#151515" "#151515" "#5b5b5b" "#151515"
 client.urgent           "#cf6a4c" "#cf6a4c" "#151515" "#cf6a4c"
 
-client.background       "#0B0E14"
+client.background       "#0F1419"
 
 # ----------------- MONITORS ------------------
 set $monitor1 "HDMI-A-0"
@@ -154,12 +154,12 @@ bar {
         position top
 
         colors {
-                background #0B0E14
+                background #0F1419
                 statusline #BFBDB6
 
-                focused_workspace  #151515 #BFBDB6 #151515
-                active_workspace   #151515 #151515 #5b5b5b
-                inactive_workspace #151515 #151515 #5b5b5b
-                urgent_workspace   #151515 #D95757 #5b5b5b
+                focused_workspace  #0F1419 #BFBDB6 #0F1419
+                active_workspace   #0F1419 #0F1419 #BFBDB6
+                inactive_workspace #0F1419 #0F1419 #BFBDB6
+                urgent_workspace   #0F1419 #F07178 #BFBDB6
         }
 }
