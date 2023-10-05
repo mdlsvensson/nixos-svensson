@@ -8,7 +8,7 @@
     # https://github.com/nix-community/nixvim
     nixvim.url = "github:nix-community/nixvim";
     nixvim.inputs.nixpkgs.follows = "nixpkgs";
-    
+
     # https://github.com/Misterio77/nix-colors
     nix-colors.url = "github:misterio77/nix-colors";
     base16-schemes.url = "github:mdlsvensson/base16-schemes";
