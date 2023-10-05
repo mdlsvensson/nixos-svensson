@@ -26,7 +26,7 @@
           theme = "solarized-dark";
           overrides = {
             idle_bg = "#BFBDB6";
-            idle_fg = "#0B0E14";
+            idle_fg = "#0F1419";
             separator = "";
           };
         };
