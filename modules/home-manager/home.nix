@@ -80,10 +80,10 @@
 
   programs = {
     zsh = import ./programs/zsh.nix;
-    kitty = import ./programs/kitty.nix { inherit (config.colorScheme) colors; };
+    kitty = import ./programs/kitty.nix { inherit config; };
     nixvim = import ./programs/nixvim.nix;
     i3status-rust = import ./programs/i3status-rust.nix;
-    rofi = import ./programs/rofi;
+    rofi = import ./programs/rofi.nix { inherit config; };
     git = {
       enable = true;
       userName  = "mdlsvensson";
