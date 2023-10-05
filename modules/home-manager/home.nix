@@ -108,12 +108,7 @@
       enable = true;
       package = pkgs.nnn.override ({ withNerdIcons = true; });
     };
-    vscode = {
-      enable = true;
-      package = pkgs.vscode.fhsWithPackages (ps: with ps; [
-        nil
-      ]);
-    };
+    vscode = import ./programs/vscode.nix;
     gh = {
       enable = true;
       settings.editor = "nvim";
