@@ -10,34 +10,151 @@ in {
     "*" = {
       scrollbar = false;
 
-      background = mkLiteral "#${colors.base05}";
+      background = mkLiteral "#${colors.base00}";
+      background-color = mkLiteral "@background";
+      foreground = mkLiteral "#${colors.base05}";
+      foreground-color = mkLiteral "@foreground";
+      border-color = mkLiteral "@foreground";
+      separatorcolor = mkLiteral "@border-color";
+      scrollbar-handle = mkLiteral "@border-color";
 
-      bg = mkLiteral "#272D38";
-      bg-dark = mkLiteral "#0F1419";
-      bg-highlight = mkLiteral "#E6E1CF";
-      fg = mkLiteral "#E6E1CF";
-      fg-dark = mkLiteral "#0F1419";
-      red = mkLiteral "#F07178";
-      yellow = mkLiteral "#FFB454";
-      orange = mkLiteral "#FF8F40";
-      gray = mkLiteral "#3E4B59";
+      normal-background = mkLiteral "@background";
+      normal-foreground = mkLiteral "@foreground";
+      alternate-normal-background = mkLiteral "@background";
+      alternate-normal-foreground = mkLiteral "@foreground";
+      selected-normal-background = mkLiteral "@foreground";
+      selected-normal-foreground = mkLiteral "@background";
+
+      active-background = mkLiteral "#${colors.base09}";
+      active-foreground = mkLiteral "@background";
+      alternate-active-background = mkLiteral "#${colors.base09}";
+      alternate-active-foreground = mkLiteral "@background";
+      selected-active-background = mkLiteral "@foreground";
+      selected-active-foreground = mkLiteral "@background";
+
+      urgent-background = mkLiteral "#${colors.base08}";
+      urgent-foreground = mkLiteral "@background";
+      alternate-urgent-background = mkLiteral "#${colors.base08}";
+      alternate-urgent-foreground = mkLiteral "@background";
+      selected-urgent-background = mkLiteral "@foreground";
+      selected-urgent-foreground = mkLiteral "@background";
+    };
+
+    "window" = {
+      background-color = mkLiteral "@background";
+      border = 2;
+      padding = 2;
+    };
+
+    "mainbox" = {
+      padding = 0;
+    };
+
+    "message" = {
+      border-color = mkLiteral "@separatorcolor";
+      padding = 1;
+    };
+
+    "textbox" = {
+      highlight = mkLiteral "@background";
+      text-color = mkLiteral "@foreground";
+    };
+
+    "listview" = {
+      border-color = mkLiteral "@separatorcolor";
+      scrollbar = mkLiteral "@scrollbar";
+    };
+
+    "element" = {
+      border = 0;
+      padding = 2;
+    };
+
+    "element.normal.normal" = {
+      background-color = mkLiteral "@normal-background";
+      text-color = mkLiteral "@normal-foreground";
+    };
+
+    "element.normal.urgent" = {
+      background-color = mkLiteral "@urgent-background";
+      text-color = mkLiteral "@urgent-foreground";
+    };
+
+    "element.normal.active" = {
+      background-color = mkLiteral "@active-background";
+      text-color = mkLiteral "@active-foreground";
+    };
+
+    "element.selected.normal" = {
+      background-color = mkLiteral "@selected-normal-background";
+      text-color = mkLiteral "@selected-normal-foreground";
+    };
+
+    "element.selected.urgent" = {
+      background-color = mkLiteral "@selected-urgent-background";
+      text-color = mkLiteral "@selected-urgent-foreground";
+    };
+
+    "element.selected.active" = {
+      background-color = mkLiteral "@selected-active-background";
+      text-color = mkLiteral "@selected-active-foreground";
+    };
+
+    "element.alternate.normal" = {
+      background-color = mkLiteral "@alternate-normal-background";
+      text-color = mkLiteral "@alternate-normal-foreground";
+    };
+
+    "element.alternate.urgent" = {
+      background-color = mkLiteral "@alternate-urgent-background";
+      text-color = mkLiteral "@alternate-urgent-foreground";
+    };
+
+    "element.alternate.active" = {
+      background-color = mkLiteral "@alternate-active-background";
+      text-color = mkLiteral "@alternate-active-foreground";
+    };
+
+    "scrollbar" = {
+      width = 4;
+      border = 0;
+      handle-color = mkLiteral "@scrollbar-handle";
+      handle-width = 8;
+      padding = 0;
+    };
+
+    "mode-switcher" = {
+      border = mkLiteral "2px 0 0";
+      border-color = mkLiteral "@separatorcolor";
+    };
+
+    "inputbar" = {
+      spacing = 0;
+      text-color = mkLiteral "@normal-foreground";
+      padding = 2;
+      children = map mkLiteral [ "prompt" "textbox-prompt-sep" "entry" "case-indicator" ];
+    };
+
+    "case-indicator, entry, prompt, button" = {
+      spacing = 0;
+      text-color = mkLiteral "@normal-foreground";
+    };
+
+    "button.selected" = {
+      background-color = mkLiteral "@selected-normal-background";
+      text-color = mkLiteral "@selected-normal-foreground";
+    };
+
+    "textbox-prompt-sep" = {
+      expand = false;
+      str = ":";
+      margin = mkLiteral "0px 0.3em 0em 0em";
+      text-color = mkLiteral "@normal-foreground";
+    };
+
+    "element-text, element-icon" = {
+      background-color = mkLiteral "inherit";
+      text-color = mkLiteral "inherit";
     };
   };
 }
-
-  #  background-color = mkLiteral "#000000";
-  #   foreground-color = mkLiteral "rgba ( 250, 251, 252, 100 % )";
-  #   border-color = mkLiteral "#FFFFFF";
-  #   width = 512;
-  # };
-
-  # "#inputbar" = {
-  #   children = map mkLiteral [ "prompt" "entry" ];
-  # };
-
-  # "#textbox-prompt-colon" = {
-  #   expand = false;
-  #   str = ":";
-  #   margin = mkLiteral "0px 0.3em 0em 0em";
-  #   text-color = mkLiteral "@foreground-color";
-  # };
