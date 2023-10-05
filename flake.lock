@@ -282,7 +282,22 @@
         "home-manager": "home-manager",
         "nix-colors": "nix-colors",
         "nixpkgs": "nixpkgs",
-        "nixvim": "nixvim"
+        "nixvim": "nixvim",
+        "setup-config": "setup-config"
+      }
+    },
+    "setup-config": {
+      "locked": {
+        "dirtyRev": "aca94d8a7127ef8e05ba962e81af35f4c67e281d-dirty",
+        "dirtyShortRev": "aca94d8-dirty",
+        "lastModified": 1696513171,
+        "narHash": "sha256-FPnYHlXjZA1fYE99E2XIjgYdZNllp1m3yNXFPvF0JW0=",
+        "type": "git",
+        "url": "file:///home/mdlsvensson/Repo/nixos-setup-config"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/mdlsvensson/Repo/nixos-setup-config"
       }
     },
     "systems": {

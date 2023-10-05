@@ -1,4 +1,4 @@
-{ config, pkgs, host, ... }:
+{ config, pkgs, ... }:
 {
   # https://nixos.wiki/wiki/Bootloader
   boot.loader.systemd-boot.enable = true;
@@ -37,7 +37,6 @@
 
   security.sudo.extraConfig = "Defaults env_reset,pwfeedback"; # Shows passwords characters as asterisks
 
-  networking.hostName = host;
   networking.networkmanager.enable = true;
 
   system.stateVersion = "23.05"; # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
