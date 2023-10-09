@@ -1,7 +1,7 @@
 # Window color settings
 # class                  border    backgr.   text     indicator
-client.focused          "#BFBDB6" "#BFBDB6" "#99AD6A" "#2e2e2e"
-client.unfocused        "#3E4B59" "#3E4B59" "#5b5b5b" "#151515"
+client.focused          "#BFBDB6" "#BFBDB6" "#99AD6A" "#BFBDB6"
+client.unfocused        "#3E4B59" "#3E4B59" "#5b5b5b" "#3E4B59"
 client.focused_inactive "#151515" "#151515" "#5b5b5b" "#151515"
 client.placeholder      "#151515" "#151515" "#5b5b5b" "#151515"
 client.urgent           "#F07178" "#F07178" "#151515" "#F07178"
