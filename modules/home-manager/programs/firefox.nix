@@ -1,26 +1,6 @@
 {
   enable = true;
   profiles."mdlsvensson" = {
-    bookmarks = [
-      {
-        name = "Packages";
-        tags = [ "nixos" "nix" "linux" ];
-        keyword = "pkgs";
-        url = "https://search.nixos.org/packages";
-      }
-      {
-        name = "Options";
-        tags = [ "nixos" "nix" "linux" ];
-        keyword = "opts";
-        url = "https://search.nixos.org/options";
-      }
-      {
-        name = "HM Search";
-        tags = [ "nixos" "nix" "linux" "home manager" ];
-        keyword = "hm";
-        url = "https://mipmip.github.io/home-manager-option-search/";
-      }
-    ];
     search = {
       force = true;
       engines = {
@@ -28,13 +8,25 @@
           urls = [{
             template = "https://search.nixos.org/packages";
             params = [
-              { name = "type"; value = "packages"; }
+              { name = "channel"; value = "unstable";    }
               { name = "query"; value = "{searchTerms}"; }
             ];
           }];
           iconUpdateURL = "https://nixos.wiki/favicon.png";
           updateInterval = 24 * 60 * 60 * 1000; # every day
           definedAliases = [ "@pkgs" ];
+        };
+        "opts" = {
+          urls = [{
+            template = "https://search.nixos.org/options";
+            params = [
+              { name = "channel"; value = "unstable";    }
+              { name = "query"; value = "{searchTerms}"; }
+            ];
+          }];
+          iconUpdateURL = "https://nixos.wiki/favicon.png";
+          updateInterval = 24 * 60 * 60 * 1000; # every day
+          definedAliases = [ "@opts" ];
         };
         "home-manager" = {
           urls = [{
@@ -43,10 +35,22 @@
               { name = "query"; value = "{searchTerms}"; }
             ];
           }];
-          iconUpdateURL = "images/favicon.png";
+          iconUpdateURL = "https://mipmip.github.io/home-manager-option-search/images/favicon.png";
           updateInterval = 24 * 60 * 60 * 1000; # every day
           definedAliases = [ "@hm" ];
         };
+        "youtube" = {
+          urls = [{
+            template = "https://www.youtube.com/results";
+            params = [
+              { name = "search_query"; value = "{searchTerms}"; }
+            ];
+          }];
+          iconUpdateURL = "https://s.ytimg.com/yts/img/favicon-vfl8qSV2F.ico";
+          updateInterval = 24 * 60 * 60 * 1000; # every day
+          definedAliases = [ "@yt" ];
+        };
+
       };
     };
   };
