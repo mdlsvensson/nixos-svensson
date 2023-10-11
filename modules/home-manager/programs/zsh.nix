@@ -1,6 +1,6 @@
 {
   enable = true;
-  history.size = 10000;
+  history.size = 100000;
   history.path = "/home/mdlsvensson/.config/zsh/history";
   shellAliases = {
     # General
