@@ -85,11 +85,7 @@
       userName  = "mdlsvensson";
       userEmail = "wilmer.lindau@gmail.com";
     };
-    firefox = {
-      enable = true;
-      profiles."mdlsvensson".name = "mdlsvensson";
-      profiles."mdlsvensson".isDefault = true;
-    };
+    firefox = import ./programs/firefox.nix;
     starship = {
       enable = true;
       settings.add_newline = true;
