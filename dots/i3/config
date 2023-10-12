@@ -152,6 +152,7 @@ bindsym Shift+Print exec --no-startup-id maim --select "/home/mdlsvensson/Pictur
 bar {
         status_command i3status-rs ~/.config/i3status-rust/config-top.toml
         position top
+        tray_output primary
 
         colors {
                 background #0F1419
