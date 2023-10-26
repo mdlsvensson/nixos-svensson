@@ -30,7 +30,6 @@
     inxi
     htop
     fd
-    # gnutar
     zenith
     git
   ];

@@ -79,7 +79,6 @@ in {
     notify-desktop        # Notifications
     pcmanfm               # File Manager
     libsForQt5.ark        # Archive Manager
-    xmobar                # Status bar
   ];
 
   programs.steam = {
