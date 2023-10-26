@@ -101,47 +101,7 @@ rec {
     };
   };
 
-  programs = {
-    zsh = import ./programs/zsh.nix;
-    kitty = import ./programs/kitty.nix { inherit config; };
-    nixvim = import ./programs/nixvim.nix;
-    i3status-rust = import ./programs/i3status-rust.nix;
-    rofi = import ./programs/rofi.nix { inherit config pkgs; };
-    git = {
-      enable = true;
-      userName  = "mdlsvensson";
-      userEmail = "wilmer.lindau@gmail.com";
-    };
-    firefox = import ./programs/firefox.nix;
-    starship = {
-      enable = true;
-      settings.add_newline = true;
-    };
-    eza = {
-      enable = true;
-      icons = true;
-    };
-    fzf = {
-      enable = true;
-      defaultCommand = "fd --type f";
-    };
-    nnn = {
-      enable = true;
-      package = pkgs.nnn.override ({ withNerdIcons = true; });
-    };
-    vscode = import ./programs/vscode.nix { inherit pkgs; };
-    gh = {
-      enable = true;
-      settings.editor = "nvim";
-    };
-    mpv = import ./programs/mpv.nix { inherit pkgs; };
-    lazygit.enable = true;
-    zoxide.enable = true;
-    nix-index.enable = true;
-    bat.enable = true;
-    # direnv.enable = true;
-    home-manager.enable = true;
-  };
+  programs = import ./programs { inherit config pkgs; };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";
