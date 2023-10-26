@@ -26,6 +26,8 @@ rec {
       "Pictures/wallpaper.png".source = ../../wallpaper.png;
       # i3wm
       ".config/i3".source = ../../dots/i3;
+      # mpv
+      ".config/mpv".source = ../../dots/mpv;
     };
 
     # https://github.com/nix-community/home-manager/issues/1800 (workaround)
@@ -130,11 +132,11 @@ rec {
       enable = true;
       settings.editor = "nvim";
     };
+    mpv = import ./programs/mpv.nix { inherit pkgs; };
     lazygit.enable = true;
     zoxide.enable = true;
     nix-index.enable = true;
     bat.enable = true;
-    mpv.enable = true;
     # direnv.enable = true;
     home-manager.enable = true;
   };
