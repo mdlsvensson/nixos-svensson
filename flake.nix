@@ -30,10 +30,10 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
           modules = [
-            ./modules/hardware-configuration.nix      # nixos-generate-config --show-hardware-config > hw-desktop.nix
-            ./modules                                 # Global config
-            ./modules/hosts/${setup-config.host}.nix               # Host specific
-            home-manager.nixosModules.home-manager {  # https://nix-community.github.io/home-manager/index.html#sec-install-nixos-module
+            ./modules/hardware-configuration.nix      # generated hardware config
+            ./modules                                 # top-level module
+            ./modules/hosts/${setup-config.host}.nix  # desktop/laptop module
+            home-manager.nixosModules.home-manager {  # home-manager as module
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;

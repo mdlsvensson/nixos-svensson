@@ -19,7 +19,6 @@
   nix.settings.auto-optimise-store = true;
 
   nixpkgs.config.allowUnfree = true;
-  # Common packages for all hosts
   environment.systemPackages = with pkgs; [
     file
     vim
@@ -34,7 +33,7 @@
     git
   ];
 
-  security.sudo.extraConfig = "Defaults env_reset,pwfeedback"; # Shows passwords characters as asterisks
+  security.sudo.extraConfig = "Defaults env_reset,pwfeedback";
 
   networking.networkmanager.enable = true;
 
