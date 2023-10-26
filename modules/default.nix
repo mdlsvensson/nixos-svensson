@@ -19,10 +19,12 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # https://nixos.org/manual/nixos/stable/index.html#sec-user-management
-  users.users."mdlsvensson" = {
-    isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" "video" ];
-  };
+  users.users."mdlsvensson".isNormalUser = true;
+  users.users."mdlsvensson".extraGroups = [
+    "networkmanager"
+    "wheel"
+    "video"
+  ];
 
   # https://nixos.wiki/wiki/Flakes
   nix.settings.experimental-features = "nix-command flakes";
