@@ -2,10 +2,12 @@
 let
   inherit (config.colorScheme) colors;
 in {
-  enable = true;
-  font.name = "JetBrainsMono Nerd Font";
-  font.size = 10;
-  settings = {
+  programs.kitty.enable = true;
+  programs.kitty.font = {
+    name = "JetBrainsMono Nerd Font";
+    size = 10;
+  };
+  programs.kitty.settings = {
     shell = "zsh";
     confirm_os_window_close = 0;
     scrollback_lines = 4000;

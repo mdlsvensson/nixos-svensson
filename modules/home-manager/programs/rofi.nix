@@ -3,16 +3,12 @@ let
   inherit (config.lib.formats.rasi) mkLiteral;
   inherit (config.colorScheme) colors;
 in {
-  enable = true;
-  location = "center";
-  font = "Noto Sans Nerd Font Bold 10";
-  plugins = with pkgs; [
-    rofi-calc
-  ];
-  extraConfig = {
-    modes = "window,run,ssh,drun,calc";
-  };
-  theme = {
+  programs.rofi.enable = true;
+  programs.rofi.location = "center";
+  programs.rofi.font = "Noto Sans Nerd Font Bold 10";
+  programs.rofi.plugins = with pkgs; [ rofi-calc ];
+  programs.rofi.extraConfig.modes = "window,run,ssh,drun,calc";
+  programs.rofi.theme = {
     "*" = {
       scrollbar = false;
 
