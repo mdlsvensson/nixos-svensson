@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 let
   inherit (config.lib.formats.rasi) mkLiteral;
   inherit (config.colorScheme) colors;
@@ -6,6 +6,12 @@ in {
   enable = true;
   location = "center";
   font = "Noto Sans Nerd Font Bold 10";
+  plugins = with pkgs; [
+    rofi-calc
+  ];
+  extraConfig = {
+    modes = "window,run,ssh,drun,calc";
+  };
   theme = {
     "*" = {
       scrollbar = false;

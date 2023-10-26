@@ -19,6 +19,8 @@ rec {
       tor-browser-bundle-bin  # Tor Browser
       r2mod_cli               # Risk of Rain 2 mod manager
       r2modman                # Risk of Rain 2 mod manager
+      rofi-screenshot
+      rofi-power-menu
     ];
 
     file = {
@@ -104,7 +106,7 @@ rec {
     kitty = import ./programs/kitty.nix { inherit config; };
     nixvim = import ./programs/nixvim.nix;
     i3status-rust = import ./programs/i3status-rust.nix;
-    rofi = import ./programs/rofi.nix { inherit config; };
+    rofi = import ./programs/rofi.nix { inherit config pkgs; };
     git = {
       enable = true;
       userName  = "mdlsvensson";
