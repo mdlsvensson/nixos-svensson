@@ -31,7 +31,7 @@
           specialArgs = { inherit inputs; };
           modules = [
             ./modules/hardware-configuration.nix      # nixos-generate-config --show-hardware-config > hw-desktop.nix
-            ./modules/configuration.nix               # Global config
+            ./modules                                 # Global config
             ./modules/hosts/${setup-config.host}.nix               # Host specific
             home-manager.nixosModules.home-manager {  # https://nix-community.github.io/home-manager/index.html#sec-install-nixos-module
               home-manager.extraSpecialArgs = { inherit inputs; };
