@@ -1,5 +1,16 @@
-{ config, pkgs, ... }:
-{
+{ pkgs, ... }: {
+  imports = [
+    ./systemPackages.nix
+    ./xserver.nix
+    ./sessionCommands.nix
+    ./windowManager.nix
+    ./displayManager.nix
+    ./picom.nix
+    ./pipewire.nix
+    ./fonts.nix
+    ./steam.nix
+  ];
+
   # https://nixos.wiki/wiki/Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -17,25 +28,20 @@
   nix.settings.experimental-features = "nix-command flakes";
   # https://nixos.wiki/wiki/Storage_optimization
   nix.settings.auto-optimise-store = true;
-
   nixpkgs.config.allowUnfree = true;
-  environment.systemPackages = with pkgs; [
-    file
-    vim
-    neofetch
-    killall
-    unzip
-    zip
-    inxi
-    htop
-    fd
-    zenith
-    git
-  ];
 
   security.sudo.extraConfig = "Defaults env_reset,pwfeedback";
 
   networking.networkmanager.enable = true;
+
+  programs.dconf.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
 
   system.stateVersion = "23.05"; # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
 }
