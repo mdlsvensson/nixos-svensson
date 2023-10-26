@@ -37,7 +37,7 @@
               home-manager.extraSpecialArgs = { inherit inputs; };
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users."mdlsvensson" = import ./modules/home-manager/home.nix;
+              home-manager.users."mdlsvensson" = import ./modules/home-manager;
             }
           ];
         };
