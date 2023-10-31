@@ -22,7 +22,8 @@
       { name = "zsh-users/zsh-syntax-highlighting"; }
     ];
     initExtra = ''
-      bindkey '^I' autosuggest-accept
+      bindkey '^I'   complete-word
+      bindkey '^[[Z' autosuggest-accept
     '';
     envExtra = ''
       function garbage() {
