@@ -1,6 +1,7 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
     file
+    wget
     vim
     neofetch
     killall

@@ -10,5 +10,12 @@
     r2modman                # Risk of Rain 2 mod manager
     rofi-screenshot
     rofi-power-menu
+    lutris
+    vlc
+    wineWowPackages.stable
+    winetricks
+    mono
+    gnome.zenity
+    bottles
   ];
 }

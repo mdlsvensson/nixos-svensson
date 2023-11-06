@@ -3,7 +3,7 @@
   imports = [
     inputs.nix-colors.homeManagerModule
     inputs.nixvim.homeManagerModules.nixvim
-    ./userDirs.nix
+    ./xdg.nix
     ./packages.nix
     ./home.nix
     ./redshift.nix
