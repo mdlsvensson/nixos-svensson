@@ -31,6 +31,9 @@
   # https://nixos.wiki/wiki/Storage_optimization
   nix.settings.auto-optimise-store = true;
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0"
+  ];
 
   security.sudo.extraConfig = "Defaults env_reset,pwfeedback";
 
