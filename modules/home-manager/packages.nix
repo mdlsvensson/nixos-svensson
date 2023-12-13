@@ -17,5 +17,6 @@
     mono
     gnome.zenity
     bottles
+    discord
   ];
 }
