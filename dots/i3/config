@@ -52,7 +52,7 @@ bindsym $mod+w exec firefox
 # kill
 bindsym $mod+c kill
 # rofi
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec rofi -show run
 bindsym $mod+m exec --no-startup-id rofi -show calc -modi calc -no-show-match -no-sortm
 bindsym $mod+p exec --no-startup-id rofi -show power-menu -modi power-menu:rofi-power-menu
 # focus
