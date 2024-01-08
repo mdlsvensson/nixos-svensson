@@ -29,6 +29,9 @@
       "security.workspace.trust.untrustedFiles" = "open";
       "godot_tools.gdscript_lsp_server_port" = 6005;
       "workbench.colorTheme" = "SpaceShaman Dark";
+      "cSpell.enabledLanguageIds" = [
+        "markdown"
+      ];
     };
   };
 }
