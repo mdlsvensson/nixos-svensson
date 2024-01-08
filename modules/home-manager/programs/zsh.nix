@@ -26,14 +26,17 @@
       bindkey '^[[Z' autosuggest-accept
     '';
     envExtra = ''
-      function garbage() {
-        if [ $# -eq 0 ]; then
-          >&2 echo "No arguments provided"
-          return 1
+      function trash() {
+        if read -q "choice?Press Y/y to empty trash: "; then
+            rm -rf ~/.local/share/Trash/*
+        else
+            echo
+            echo "'$choice' not 'Y' or 'y'. Exiting..."
         fi
+      }
 
-        nix-env --delete-generations $1
-        nix-store --gc
+      function garbage() {
+        sudo nix-collect-garbage --delete-older-than 10d
       }
 
       function clone() {
