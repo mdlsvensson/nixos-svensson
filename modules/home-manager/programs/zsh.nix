@@ -27,16 +27,15 @@
     '';
     envExtra = ''
       function trash() {
-        if read -q "choice?Press Y/y to empty trash: "; then
-            rm -rf ~/.local/share/Trash/*
-        else
-            echo
-            echo "'$choice' not 'Y' or 'y'. Exiting..."
-        fi
+        rm -rf ~/.local/share/Trash/*
       }
 
       function garbage() {
         sudo nix-collect-garbage --delete-older-than 10d
+      }
+
+      function garbage-all() {
+        sudo nix-collect-garbage -d
       }
 
       function clone() {
