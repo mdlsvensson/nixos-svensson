@@ -1,6 +1,6 @@
 {
   services.xserver.enable = true;
-  services.xserver.layout = "us";
+  services.xserver.xkb.layout = "us";
   services.xserver.libinput.mouse.accelProfile = "flat";
   services.xserver.serverFlagsSection = ''
     Option "BlankTime" "0"

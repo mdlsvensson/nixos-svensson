@@ -18,5 +18,6 @@
     gnome.zenity
     bottles
     discord
+    snes9x-gtk
   ];
 }

@@ -41,6 +41,7 @@
 
   programs.dconf.enable = true;
   services.gnome.gnome-keyring.enable = true;
+  services.ratbagd.enable = true;
 
   hardware.opengl.enable = true;
   hardware.opengl.driSupport = true;
