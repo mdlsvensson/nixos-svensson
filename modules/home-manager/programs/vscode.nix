@@ -1,9 +1,30 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+  let
+    system = pkgs.system;
+    extensions =
+      (import (builtins.fetchGit {
+        url = "https://github.com/nix-community/nix-vscode-extensions";
+        ref = "refs/heads/master";
+        rev = "728418f4de5d01d4c4997a99a11afeb69f3da104";
+      })).extensions.${system};
+  in
+  {
   programs.vscode.enable = true;
   programs.vscode = {
     package = pkgs.vscode.fhsWithPackages (ps: with ps; [
       nil
     ]);
+    extensions = with extensions.vscode-marketplace; [
+      geequlim.godot-tools
+      bedirt.gpt-token-counter-live
+      spaceshaman.spaceshaman-dark
+      streetsidesoftware.code-spell-checker
+      dcasella.i3
+      sumneko.lua
+      yzhang.markdown-all-in-one
+      jnoortheen.nix-ide
+      dlasagno.rasi
+    ];
     keybindings = [
       {
         key = "ctrl+alt+p";
