@@ -10,16 +10,22 @@
       (system:
         let
           pkgs = inputs.nixpkgs.legacyPackages.${system};
-          extensions = inputs.nix-vscode-extensions.extensions.${system};
+          extensions = inputs.nix-vscode-extensions.extensions.${system}.vscode-marketplace;
           inherit (pkgs) vscode-with-extensions vscodium;
 
           packages.default =
             vscode-with-extensions.override {
               vscode = vscodium;
               vscodeExtensions = with extensions; [
-                open-vsx.geequlim.godot-tools
-                vscode-marketplace.bedirt.gpt-token-counter-live
-                vscode-marketplace.spaceshaman.spaceshaman-dark
+                geequlim.godot-tools
+                bedirt.gpt-token-counter-live
+                spaceshaman.spaceshaman-dark
+                streetsidesoftware.code-spell-checker
+                dcasella.i3
+                sumneko.lua
+                yzhang.markdown-all-in-one
+                jnoortheen.nix-ide
+                dlasagno.rasi
               ];
             };
 
