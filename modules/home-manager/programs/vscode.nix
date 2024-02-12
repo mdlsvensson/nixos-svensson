@@ -11,32 +11,34 @@
       }
     ];
     userSettings = {
-      "nix.enableLanguageServer" = true;
-      "nix.serverPath" = "nil";
-      "explorer.confirmDragAndDrop" = false;
-      "explorer.confirmDelete" = false;
-      "workbench.editor.untitled.hint" = "hidden";
-      "github.copilot.enable" = {
-          "*" = true;
-          "plaintext" = false;
-          "markdown" = true;
-          "scminput" = false;
+      "window.menuBarVisibility" = "toggle";
+
+      "workbench" = {
+        "editor.untitled.hint" = "hidden";
+        "colorTheme" = "SpaceShaman Dark";
       };
-      "editor.fontFamily" = "'JetBrainsMono Nerd Font', 'monospace'";
-      "editor.fontSize" = 14;
+
+      "explorer" = {
+        "confirmDragAndDrop" = false;
+        "confirmDelete" = false;
+      };
+
+      "editor" = {
+        "fontFamily" = "'JetBrainsMono Nerd Font', 'monospace'";
+        "fontSize" = 14;
+      };
+
+      "security.workspace.trust.untrustedFiles" = "open";
       "files.trimTrailingWhitespace" = true;
       "git.autofetch" = true;
-      "security.workspace.trust.untrustedFiles" = "open";
-      "godot_tools.gdscript_lsp_server_port" = 6005;
-      "workbench.colorTheme" = "SpaceShaman Dark";
-      "cSpell" = {
-        "enabledLanguageIds" = [
-          "markdown"
-        ];
-        "userWords" = [
-          "Frostfire"
-        ];
+
+      "nix" = {
+        "enableLanguageServer" = true;
+        "serverPath" = "nil";
       };
+
+      "godot_tools.gdscript_lsp_server_port" = 6005;
+      "cSpell.enabledLanguageIds" = [ "markdown" ];
     };
   };
 }
