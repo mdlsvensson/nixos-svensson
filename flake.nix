@@ -19,7 +19,7 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    # Machine specific variables
+    # Local flakes
     setup-config.url = "/home/mdlsvensson/Repo/nixos-setup-config";
   };
 

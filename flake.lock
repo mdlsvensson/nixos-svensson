@@ -218,11 +218,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1707739963,
-        "narHash": "sha256-DpECm6j0fjOaBqcpVhmU76fCHbhEfROd9SjHuE2JvMk=",
+        "lastModified": 1707759973,
+        "narHash": "sha256-pcrVeFhagWn5cj+bMFFRHWGluutS8BPxZ3l0P8kFuWg=",
         "owner": "nix-community",
         "repo": "nixvim",
-        "rev": "3871b56b15857333d3c3f6d0e76fc1df51afe664",
+        "rev": "a70f58034010c503881fe7fd569c2ddcc607c5d7",
         "type": "github"
       },
       "original": {
