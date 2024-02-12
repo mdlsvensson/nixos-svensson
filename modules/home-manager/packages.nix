@@ -19,5 +19,6 @@
     bottles
     discord
     snes9x
+    protontricks
   ];
 }
