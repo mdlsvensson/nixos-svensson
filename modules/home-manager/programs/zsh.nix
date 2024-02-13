@@ -70,6 +70,9 @@
           return 0
         fi
       }
+      function dev() {
+        nix develop -c zsh
+      }
     '';
   };
 }
