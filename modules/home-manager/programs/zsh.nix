@@ -59,16 +59,16 @@
 
         case "$command" in
           update)
-          nix flake update /home/mdlsvensson/Repo/nixos-svensson
+            nix flake update /home/mdlsvensson/Repo/nixos-svensson
             ;;
           switch | build)
-          cp /etc/nixos/hardware-configuration.nix ~/Repo/nixos-svensson/modules
-          git -C ~/Repo/nixos-svensson/modules add hardware-configuration.nix
+            cp /etc/nixos/hardware-configuration.nix ~/Repo/nixos-svensson/modules
+            git -C ~/Repo/nixos-svensson/modules add hardware-configuration.nix
 
             sudo nixos-rebuild $command --flake ~/Repo/nixos-svensson/#svensson
 
-          git -C ~/Repo/nixos-svensson/modules restore --staged hardware-configuration.nix
-          rm ~/Repo/nixos-svensson/modules/hardware-configuration.nix
+            git -C ~/Repo/nixos-svensson/modules restore --staged hardware-configuration.nix
+            rm ~/Repo/nixos-svensson/modules/hardware-configuration.nix
             ;;
           new)
             shift 1
@@ -98,6 +98,26 @@
             ;;
           allow)
             echo "use flake" >> .envrc && direnv allow
+            ;;
+          *)
+            echo "Error: Unknown command '$command'"
+            return 1
+            ;;
+        esac
+      }
+
+      function pkl() {
+        if [ $# -eq 0 ]; then
+          >&2 echo "No arguments provided"
+          return 1
+        fi
+
+        command="$1"
+        filename="$2"
+
+        case "$command" in
+          eval)
+            jpkl eval -f json "$filename"
             ;;
           *)
             echo "Error: Unknown command '$command'"
