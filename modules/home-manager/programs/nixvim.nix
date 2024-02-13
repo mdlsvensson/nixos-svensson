@@ -21,7 +21,11 @@
     plugins.lsp.enable = true;
     # Main
     plugins.lsp.servers.omnisharp.enable = true;
-    plugins.lsp.servers.rust-analyzer.enable = true;
+    plugins.lsp.servers.rust-analyzer = {
+      enable = true;
+      installCargo = true;
+      installRustc = true;
+    };
     plugins.lsp.servers.gdscript.enable = true;
     # System
     plugins.lsp.servers.nil_ls.enable = true;

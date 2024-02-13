@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let
   inherit (config.lib.formats.rasi) mkLiteral;
-  inherit (config.colorScheme) colors;
+  inherit (config.colorScheme) palette;
 in {
   programs.rofi.enable = true;
   programs.rofi.location = "center";
@@ -12,9 +12,9 @@ in {
     "*" = {
       scrollbar = false;
 
-      background = mkLiteral "#${colors.base00}";
+      background = mkLiteral "#${palette.base00}";
       background-color = mkLiteral "@background";
-      foreground = mkLiteral "#${colors.base04}";
+      foreground = mkLiteral "#${palette.base04}";
       foreground-color = mkLiteral "@foreground";
       border-color = mkLiteral "@foreground";
       separatorcolor = mkLiteral "@border-color";
@@ -27,16 +27,16 @@ in {
       selected-normal-background = mkLiteral "@foreground";
       selected-normal-foreground = mkLiteral "@background";
 
-      active-background = mkLiteral "#${colors.base0A}";
+      active-background = mkLiteral "#${palette.base0A}";
       active-foreground = mkLiteral "@background";
-      alternate-active-background = mkLiteral "#${colors.base0A}";
+      alternate-active-background = mkLiteral "#${palette.base0A}";
       alternate-active-foreground = mkLiteral "@background";
       selected-active-background = mkLiteral "@foreground";
       selected-active-foreground = mkLiteral "@background";
 
-      urgent-background = mkLiteral "#${colors.base08}";
+      urgent-background = mkLiteral "#${palette.base08}";
       urgent-foreground = mkLiteral "@background";
-      alternate-urgent-background = mkLiteral "#${colors.base08}";
+      alternate-urgent-background = mkLiteral "#${palette.base08}";
       alternate-urgent-foreground = mkLiteral "@background";
       selected-urgent-background = mkLiteral "@foreground";
       selected-urgent-foreground = mkLiteral "@background";
