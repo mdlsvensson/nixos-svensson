@@ -18,7 +18,6 @@
   systemd.user.startServices = "sd-switch";
 
   services.unclutter.enable = true;
-  services.lorri.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";
