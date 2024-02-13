@@ -14,6 +14,7 @@
     ./fzf.nix
     ./nnn.nix
     ./gh.nix
+    ./direnv.nix
   ];
 
   programs = {
@@ -21,7 +22,6 @@
     zoxide.enable = true;
     nix-index.enable = true;
     bat.enable = true;
-    # direnv.enable = true;
     home-manager.enable = true;
   };
 }
