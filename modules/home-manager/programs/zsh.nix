@@ -48,28 +48,62 @@
       }
 
       function flake() {
+        command="$1"
+
         if [ $# -eq 0 ]; then
           >&2 echo "No arguments provided"
           return 1
         fi
 
-        if [[ $1 = *update* ]]; then
+        case "$command" in
+          update)
           nix flake update /home/mdlsvensson/Repo/nixos-svensson
-          return 0
-        fi
-
-        if [[ $1 = *switch* ]] || [[ $1 = *build* ]]; then
+            ;;
+          switch | build)
           cp /etc/nixos/hardware-configuration.nix ~/Repo/nixos-svensson/modules
           git -C ~/Repo/nixos-svensson/modules add hardware-configuration.nix
 
-          sudo nixos-rebuild $1 --flake ~/Repo/nixos-svensson/#svensson
+            sudo nixos-rebuild $command --flake ~/Repo/nixos-svensson/#svensson
 
           git -C ~/Repo/nixos-svensson/modules restore --staged hardware-configuration.nix
           rm ~/Repo/nixos-svensson/modules/hardware-configuration.nix
+            ;;
+          new)
+            shift 1
+            destination_path="."
 
-          return 0
-        fi
+            if [[ "$#" -gt 0 ]]; then
+              destination_path="$1"
+            fi
+
+            nix flake new $destination_path
+            ;;
+          template)
+            shift 1
+            template_url=""
+            destination_path="."
+
+            if [[ "$#" -gt 0 ]]; then
+              template_url="$1"
+              shift 1
+            fi
+
+            if [[ "$#" -gt 0 ]]; then
+              destination_path="$1"
+            fi
+
+            nix flake new $destination_path -t $template_url
+            ;;
+          allow)
+            echo "use flake" >> .envrc && direnv allow
+            ;;
+          *)
+            echo "Error: Unknown command '$command'"
+            return 1
+            ;;
+        esac
       }
+
       function dev() {
         nix develop -c zsh
       }
