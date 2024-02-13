@@ -39,12 +39,14 @@
       }
 
       function clone() {
+        url="$1"
+
         if [ $# -eq 0 ]; then
           >&2 echo "No arguments provided"
           return 1
         fi
 
-        gh repo clone $1
+        gh repo clone $url
       }
 
       function flake() {
