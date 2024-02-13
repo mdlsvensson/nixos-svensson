@@ -30,6 +30,7 @@
   nix.settings.experimental-features = "nix-command flakes";
   # https://nixos.wiki/wiki/Storage_optimization
   nix.settings.auto-optimise-store = true;
+  nix.settings.trusted-users = [ "root" "mdlsvensson" ];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
     "electron-25.9.0"
