@@ -114,10 +114,11 @@
 
         command="$1"
         filename="$2"
+        outputfilename="''${filename%.pkl}.json"
 
         case "$command" in
           eval)
-            jpkl eval -f json "$filename"
+            jpkl eval -f json -o "$outputfilename" "$filename"
             ;;
           *)
             echo "Error: Unknown command '$command'"
