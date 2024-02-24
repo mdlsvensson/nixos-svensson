@@ -10,5 +10,6 @@
     gnome.zenity            # Desktop Dialogs
     snes9x                  # SNES Emulator
     protontricks            # Winetricks
+    lutris
   ];
 }

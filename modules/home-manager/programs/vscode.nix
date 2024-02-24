@@ -24,6 +24,8 @@
       yzhang.markdown-all-in-one
       jnoortheen.nix-ide
       dlasagno.rasi
+      eddiedover.gdscript-formatter-linter
+      llvm-vs-code-extensions.vscode-clangd
     ];
     keybindings = [
       {

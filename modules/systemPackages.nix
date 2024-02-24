@@ -21,5 +21,6 @@
     notify-desktop
     pcmanfm
     libsForQt5.ark
+    llvmPackages_17.clang-unwrapped
   ];
 }
