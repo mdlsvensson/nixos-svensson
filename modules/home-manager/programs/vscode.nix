@@ -26,6 +26,7 @@
       dlasagno.rasi
       eddiedover.gdscript-formatter-linter
       llvm-vs-code-extensions.vscode-clangd
+      ms-vscode.cmake-tools
     ];
     keybindings = [
       {
