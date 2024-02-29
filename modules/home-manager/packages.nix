@@ -1,7 +1,6 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
     godot_4                 # Godot Engine
-    blender-hip             # Blender
     qbittorrent             # Torrent client
     gimp                    # Image editor
     discord                 # Discord
@@ -11,5 +10,6 @@
     snes9x                  # SNES Emulator
     protontricks            # Winetricks
     lutris
+    bottles
   ];
 }

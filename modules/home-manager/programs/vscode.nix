@@ -28,6 +28,7 @@
       llvm-vs-code-extensions.vscode-clangd
       ms-vscode.cmake-tools
       ms-vscode.makefile-tools
+      kartikch.yalikejazz
     ];
     keybindings = [
       {
