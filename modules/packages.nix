@@ -1,5 +1,6 @@
 { pkgs, ... }: {
   environment.systemPackages = with pkgs; [
+    git
     file
     wget
     vim
@@ -11,7 +12,6 @@
     htop
     fd
     zenith
-    git
     xclip
     alsa-utils
     maim
@@ -21,6 +21,5 @@
     notify-desktop
     pcmanfm
     libsForQt5.ark
-    llvmPackages_17.clang-unwrapped
   ];
 }

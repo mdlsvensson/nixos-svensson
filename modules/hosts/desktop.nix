@@ -1,8 +1,4 @@
-{ ... }:
 {
-  boot = {
-    initrd.kernelModules = [ "amdgpu" ];
-    kernelParams = [ "usbhid.mousepoll=8" ];
-  };
+  boot.initrd.kernelModules = [ "amdgpu" ];
   services.xserver.videoDrivers = [ "amdgpu" ];
 }
