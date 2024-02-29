@@ -1,5 +1,5 @@
 {
-  description = "Personal NixOS configuration for dektop/laptop - nothing fancy.";
+  description = "Personal NixOS configuration for dektop.";
 
   inputs = {
     # https://channels.nixos.org/
