@@ -63,15 +63,40 @@
     };
     bookmarks = [
       {
-        name = "google-gemini";
-        tags = [ "ai" "bot" "google" "chat" ];
-        keyword = "ge";
-        url = "https://gemini.google.com/";
+        name = "ai";
+        toolbar = true;
+        bookmarks = [
+          {
+            name = "google-gemini";
+            tags = [ "ai" "bot" "google" "chat" ];
+            keyword = "ge";
+            url = "https://gemini.google.com/";
+          }
+        ];
       }
+
       {
-        name = "easing-functions-cheat-sheet";
-        tags = [ "math" "programming" "logic" "gamedev" "trigonometry" ];
-        url = "https://easings.net/";
+        name = "cheat-sheets";
+        toolbar = true;
+        bookmarks = [
+          {
+            name = "easing-functions-cheat-sheet";
+            tags = [ "cheat" "sheet" "math" "programming" "logic" "gamedev" "trigonometry" ];
+            url = "https://easings.net/";
+          }
+        ];
+      }
+
+      {
+        name = "nix";
+        toolbar = true;
+        bookmarks = [
+          {
+            name = "erosanix";
+            tags = [ "nix" "nixos" "module" "modules" "config" "expressions" "packages" "functions" ];
+            url = "https://github.com/emmanuelrosa/erosanix";
+          }
+        ];
       }
     ];
   };
