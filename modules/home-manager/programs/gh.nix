@@ -1,4 +1,6 @@
 {
-  programs.gh.enable = true;
-  programs.gh.settings.editor = "nvim";
+  programs.gh = {
+    enable = true;
+    settings.editor = "nvim";
+  };
 }

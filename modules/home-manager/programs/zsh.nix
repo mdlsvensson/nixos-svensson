@@ -1,6 +1,6 @@
 {
-  programs.zsh.enable = true;
   programs.zsh = {
+    enable = true;
     dotDir = ".config/zsh";
     history.size = 100000;
     history.path = "/home/mdlsvensson/.config/zsh/history";

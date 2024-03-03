@@ -1,4 +1,6 @@
 {
-  programs.starship.enable = true;
-  programs.starship.settings.add_newline = true;
+  programs.starship = {
+    enable = true;
+    settings.add_newline = true;
+  };
 }

@@ -1,4 +1,6 @@
 {
-  programs.fzf.enable = true;
-  programs.fzf.defaultCommand = "fd --type f";
+  programs.fzf = {
+    enable = true;
+    defaultCommand = "fd --type f";
+  };
 }

@@ -1,16 +1,15 @@
 { pkgs, ... }:
-  let
-    system = pkgs.system;
-    extensions =
-      (import (builtins.fetchGit {
-        url = "https://github.com/nix-community/nix-vscode-extensions";
-        ref = "refs/heads/master";
-        rev = "728418f4de5d01d4c4997a99a11afeb69f3da104";
-      })).extensions.${system};
-  in
-  {
-  programs.vscode.enable = true;
+let
+  system = pkgs.system;
+  extensions =
+    (import (builtins.fetchGit {
+      url = "https://github.com/nix-community/nix-vscode-extensions";
+      ref = "refs/heads/master";
+      rev = "728418f4de5d01d4c4997a99a11afeb69f3da104";
+    })).extensions.${system};
+in {
   programs.vscode = {
+    enable = true;
     package = pkgs.vscode.fhsWithPackages (ps: with ps; [
       nil
     ]);

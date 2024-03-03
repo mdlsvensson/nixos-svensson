@@ -1,4 +1,6 @@
 {
-  programs.eza.enable = true;
-  programs.eza.icons = true;
+  programs.eza = {
+    enable = true;
+    icons = true;
+  };
 }
