@@ -1,14 +1,13 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
+
 {
   imports = [
     inputs.nix-colors.homeManagerModule
     inputs.nixvim.homeManagerModules.nixvim
-    ./userDirs.nix
-    ./mimeApps.nix
-    ./packages.nix
     ./home.nix
-    ./redshift.nix
-    ./gtk.nix
+    ./services.nix
+    ./xdg.nix
+    ./packages.nix
     ./programs
   ];
 
@@ -17,7 +16,18 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
-  services.unclutter.enable = true;
+  gtk = {
+    enable = true;
+    font.name = "Iosevka Nerd Font Bold 10";
+    theme = {
+      package = pkgs.ayu-theme-gtk;
+      name = "Ayu-Dark";
+    };
+    iconTheme = {
+      package = pkgs.papirus-icon-theme;
+      name = "Papirus-Dark";
+    };
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";
