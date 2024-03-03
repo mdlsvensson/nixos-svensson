@@ -1,8 +1,9 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+
+{
   imports = [
     ./packages.nix
     ./services.nix
-    ./steam.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
