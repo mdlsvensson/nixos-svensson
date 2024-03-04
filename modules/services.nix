@@ -18,12 +18,7 @@
         enable = true;
         extraPackages = [ pkgs.i3a ];
       };
-      windowManager.awesome = {
-        enable = true;
-        luaModules = with pkgs.luaPackages; [
-          luarocks # is the package manager for Lua modules
-        ];
-      };
+      windowManager.awesome.enable = true;
       displayManager = {
         lightdm = {
           enable = true;
