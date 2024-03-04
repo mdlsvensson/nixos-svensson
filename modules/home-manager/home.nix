@@ -11,6 +11,8 @@
       ".config/i3".source = ../../dots/i3;
       # mpv
       ".config/mpv".source = ../../dots/mpv;
+      # awesome
+      ".config/awesome".source = ../../dots/awesome;
     };
 
     # https://github.com/nix-community/home-manager/issues/1800 (workaround)
