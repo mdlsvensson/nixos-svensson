@@ -19,7 +19,6 @@ in {
       spaceshaman.spaceshaman-dark
       streetsidesoftware.code-spell-checker
       dcasella.i3
-      sumneko.lua
       yzhang.markdown-all-in-one
       jnoortheen.nix-ide
       dlasagno.rasi
@@ -28,6 +27,8 @@ in {
       ms-vscode.cmake-tools
       ms-vscode.makefile-tools
       kartikch.yalikejazz
+      sumneko.lua
+      johnnymorganz.stylua
     ];
     keybindings = [
       {
@@ -60,6 +61,10 @@ in {
       "nix" = {
         "enableLanguageServer" = true;
         "serverPath" = "nil";
+      };
+
+      "[lua]" = {
+          "editor.defaultFormatter" = "JohnnyMorganz.stylua";
       };
 
       "godot_tools.gdscript_lsp_server_port" = 6005;
