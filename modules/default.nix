@@ -46,7 +46,10 @@
     })
   ];
 
-  programs.dconf.enable = true;
+  programs = {
+    steam.enable = true;
+    dconf.enable = true;
+  };
 
   system.stateVersion = "23.05"; # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
 }
