@@ -1,18 +1,25 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 {
   home = {
     username = "mdlsvensson";
     homeDirectory = "/home/mdlsvensson";
 
-    file = {
-      # wallpaper
-      "Pictures/wallpaper.png".source = ../../wallpaper.png;
+    file =
+      let
+        lain = inputs.awesome-lain;
+        freedesktop = inputs.awesome-freedesktop;
+        copycats = inputs.awesome-copycats;
+      in {
       # i3wm
       ".config/i3".source = ../../dots/i3;
       # mpv
       ".config/mpv".source = ../../dots/mpv;
       # awesome
-      ".config/awesome".source = ../../dots/awesome;
+      ".config/awesome/lain".source = "${lain}";
+      ".config/awesome/freedesktop".source = "${freedesktop}";
+      ".config/awesome/themes".source = "${copycats}/themes";
+      ".config/awesome/rc.lua".source = ../../dots/awesome/rc.lua;
+      ".config/awesome/wall.png".source = ../../dots/awesome/wall.png;
     };
 
     # https://github.com/nix-community/home-manager/issues/1800 (workaround)
