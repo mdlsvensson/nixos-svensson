@@ -1,16 +1,4 @@
---[[
-
-     Awesome WM configuration template
-     github.com/lcpz
-
---]]
-
--- {{{ Required libraries
-
--- If LuaRocks is installed, make sure that packages installed through it are
--- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
-
 local gears = require("gears")
 local awful = require("awful")
 require("awful.autofocus")
@@ -24,12 +12,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 require("awful.hotkeys_popup.keys")
 local mytable = awful.util.table or gears.table -- 4.{0,1} compatibility
 
--- }}}
-
 -- {{{ Error handling
-
--- Check if awesome encountered an error during startup and fell back to
--- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
 	naughty.notify({
 		preset = naughty.config.presets.critical,
@@ -38,7 +21,6 @@ if awesome.startup_errors then
 	})
 end
 
--- Handle runtime errors after startup
 do
 	local in_error = false
 
@@ -58,7 +40,6 @@ do
 		in_error = false
 	end)
 end
-
 -- }}}
 
 -- {{{ Autostart windowless processes
@@ -70,7 +51,7 @@ local function run_once(cmd_arr)
 	end
 end
 
-run_once({ "urxvtd", "unclutter -root" }) -- comma-separated entries
+-- run_once({ "urxvtd", "unclutter -root" })
 
 -- This function implements the XDG autostart specification
 --[[
@@ -99,10 +80,10 @@ local themes = {
 	"vertex", -- 10
 }
 
-local chosen_theme = themes[5]
+local chosen_theme = themes[7]
 local modkey = "Mod4"
 local altkey = "Mod1"
-local terminal = "urxvtc"
+local terminal = "kitty"
 local vi_focus = false -- vi-like client focus https://github.com/lcpz/awesome-copycats/issues/275
 local cycle_prev = true -- cycle with only the previously focused client or all https://github.com/lcpz/awesome-copycats/issues/274
 local editor = os.getenv("EDITOR") or "nvim"
